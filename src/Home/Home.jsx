@@ -1,0 +1,85 @@
+import Slider from "../logoSlider/Slider";
+import DotGrid from "../dotGrid/DotGrid";
+import { FaArrowRight } from "react-icons/fa";
+import Rating from "./Rating";
+import SellAndNumber from "./SellAndNumber";
+import WhyMahadaksha from "./WhyMahadaksha";
+import WhatWeDoBest from '../HomeComponent/WhatWeDoBest'
+import HowWeWork2 from "../HomeComponent/HowWeWork2";
+import SeeOurWork from "../HomeComponent/SeeOurWork";
+function Home() {
+  return (
+    <div className="relative w-full">
+    
+      <div className="absolute inset-0 -z-10">
+        <DotGrid />
+      </div>
+
+     
+      <section className="min-h-screen flex flex-col items-center text-center px-4 pt-24">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+          From Knowledge Comes Skill, From Skill Comes Success
+        </h3>
+
+        <p className="mt-3 text-lg sm:text-xl md:text-2xl text-white">
+          ज्ञानात् कौशलम्, कौशलात् सफलता
+        </p>
+
+        <h1 className="mt-8 text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">
+          MAHADAKSHA{" "}
+          <span className="text-cyan-400 text-xl sm:text-2xl md:text-3xl">
+            Foundation
+          </span>
+        </h1>
+
+        <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300">
+          Knowledge • Skills • Excellence
+        </p>
+
+        <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-400">
+          विद्या • कौशल • उत्कर्ष
+        </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <button className="btn btn-primary">
+            Get Started <FaArrowRight />
+          </button>
+
+          <button className="btn btn-outline btn-info">
+            Learn More
+          </button>
+        </div>
+
+        <div className="mt-8">
+          <Rating />
+        </div>
+
+        <div className="mt-10 w-full">
+          <Slider />
+        </div>
+      </section>
+
+     
+      <section className="py-20">
+        <SellAndNumber />
+      </section>
+
+      <section className=" py-3 bg-white">
+        <WhyMahadaksha />
+      </section>
+
+       <section className=" ">
+        <WhatWeDoBest />
+      </section>
+      <section className="bg-[#000000]">
+         <HowWeWork2/>
+      </section>
+
+      <section className="bg-[#000000]">
+         <SeeOurWork/>
+      </section>
+    </div>
+  );
+}
+
+export default Home;  
