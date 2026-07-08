@@ -31,7 +31,7 @@ function WhyMahadaksha() {
                     roof.
                 </p>
                 <div className='text-black/59 font-medium flex items-center justify-center gap-10 mt-5 p-5 '>
-                    <span className='bg-[#F8F9FB] rounded-4xl py-2 px-10'>500+ projects delivered</span>
+                    <span className='bg-[#F8F9FB] rounded-4xl py-2 px-10'>500+ projects delivered</span>    
                     <span className='bg-[#F8F9FB] rounded-4xl py-2 px-6'>99.9% uptime</span>
                     <span className='bg-[#F8F9FB] rounded-4xl py-2 px-8'>50+ global markets</span>
                     <span className='bg-[#F8F9FB] rounded-4xl py-2 px-6'>24/7 support</span>
