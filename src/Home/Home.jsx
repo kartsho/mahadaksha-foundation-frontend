@@ -1,5 +1,4 @@
 import Slider from "../logoSlider/Slider";
-import DotGrid from "../dotGrid/DotGrid";
 import { FaArrowRight } from "react-icons/fa";
 import Rating from "./Rating";
 import SellAndNumber from "./SellAndNumber";
@@ -7,13 +6,15 @@ import WhyMahadaksha from "./WhyMahadaksha";
 import WhatWeDoBest from '../HomeComponent/WhatWeDoBest'
 import HowWeWork2 from "../HomeComponent/HowWeWork2";
 import SeeOurWork from "../HomeComponent/SeeOurWork";
+import SolutionForEveryNeed from "../HomeComponent/SolutionForEveryNeed";
+// import SoftAurora from "../softAurora/SoftAurora";
 function Home() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full bg-black">
     
-      <div className="absolute inset-0 -z-10">
-        <DotGrid />
-      </div>
+      {/* <div className="absolute inset-0 -z-10">
+        <SoftAurora />
+      </div> */}
 
      
       <section className="min-h-screen flex flex-col items-center text-center px-4 pt-24">
@@ -77,6 +78,9 @@ function Home() {
 
       <section className="bg-[#000000]">
          <SeeOurWork/>
+      </section>
+      <section className="bg-[#000000]">
+         <SolutionForEveryNeed/>
       </section>
     </div>
   );

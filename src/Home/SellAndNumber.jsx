@@ -1,6 +1,4 @@
 import React from 'react'
-import HeadLine from './HeadLine'
-import { Outlet } from 'react-router-dom'
 
 function SellAndNumber() {
 

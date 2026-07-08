@@ -9,7 +9,7 @@ import Home from './Home/Home'
 import Products from './products/Products'
 import Services from './services/Services';
 import Footer from './footer/Footer';
-import HeadLine from './Home/HeadLine'
+// import HeadLine from './Home/HeadLine'
 function App() {
 
   return (
