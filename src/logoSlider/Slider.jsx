@@ -37,7 +37,7 @@ const logos = [
 
 export default function Slider() {
   return (
-    <section className="w-full bg-[#130c22] py-0 overflow-hidden">
+    <section className="w-full bg-[#130c22] py-4 overflow-hidden">
       <h2 className="text-center text-gray-400 tracking-[5px] text-sm font-semibold mb-2">
         TRUSTED BY FAST-GROWING TEAMS
       </h2>

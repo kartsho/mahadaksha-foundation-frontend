@@ -14,6 +14,7 @@ import React, { useEffect, useState } from 'react'
 import { BsCheckLg, BsAward } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa";
 import productTeam from '../assets/productTeam.avif'
+import Slider from '../logoSlider/Slider';
 
 const API_URL = "https://6a4e15d1e785c9ef536c4116.mockapi.io/mahadakshaFoundation/About";
 
@@ -183,8 +184,24 @@ function About() {
         </div>
       </div>
 
+
+
+
+      {/* slider */}
+          <section >
+              <Slider/>
+          </section>
+
+
+
+
+
+
+
+
+
       {/* ---------- CTA ---------- */}
-      <div className='px-4 pb-24'>
+      <div className='px-4 pb-24 mt-30  '>
         <div className='bg-[#13111F] rounded-2xl max-w-4xl mx-auto text-center py-16 px-6'>
           <h2 className='text-3xl md:text-4xl font-extrabold text-white'>
             Have a Product Idea? Let's Build It Right.
