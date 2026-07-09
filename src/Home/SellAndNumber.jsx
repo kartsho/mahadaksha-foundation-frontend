@@ -3,9 +3,9 @@ import React from 'react'
 function SellAndNumber() {
 
     return (
-        <div className='relative inset-0 '>
+        <div className='relative inset-0 pb-50'>
 
-            <div className="relative inset-0 z-10 flex flex-col items-center pt-24 text-center px-4 ">
+            <div className="relative z-10 flex flex-col items-center pt-24 text-center px-4 ">
                 <h2 className="text-6xl font-bold text-white transition-all duration-300 ease-in-out hover:-translate-y-4 hover:shadow-lg ">
                     Numbers that speak for themselves
 

@@ -37,17 +37,17 @@ const logos = [
 
 export default function Slider() {
   return (
-    <section className="w-full bg-[#0d0817] py-3 overflow-hidden">
-      <h2 className="text-center text-gray-400 tracking-[5px] text-sm font-semibold mb-5">
+    <section className="w-full bg-[#130c22] py-0 overflow-hidden">
+      <h2 className="text-center text-gray-400 tracking-[5px] text-sm font-semibold mb-2">
         TRUSTED BY FAST-GROWING TEAMS
       </h2>
 
       <div className="overflow-hidden relative">
-        <div className="marquee">
+        <div className="marquee Slider">
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={index}
-              className="logo-card"
+              className="logo-card "
             >
               <img
                 src={logo}

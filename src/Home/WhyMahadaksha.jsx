@@ -4,7 +4,7 @@ import mahadaksha from '../assets/WhyMahaDaksha.jpg'
 import HowWeWork from '../HomeComponent/HowWeWork';
 function WhyMahadaksha() {
     return (
-        <div className='bg-[#FFFFFF] relative ml-20 mr-20 '>
+        <div className='bg-[#FFFFFF] relative ml-20 mr-20  '>
             <div className=' flex  text-blue-800 justify-center mt-10 font-bold items-center gap-2'>
                 <h3 className='text-l'>
                     <BsStars />

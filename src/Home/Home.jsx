@@ -6,7 +6,9 @@ import WhyMahadaksha from "./WhyMahadaksha";
 import WhatWeDoBest from '../HomeComponent/WhatWeDoBest'
 import HowWeWork2 from "../HomeComponent/HowWeWork2";
 import SeeOurWork from "../HomeComponent/SeeOurWork";
-import SolutionForEveryNeed from "../HomeComponent/SolutionForEveryNeed";
+import SolutionForEveryNeed from "./SolutionForEveryNeed";
+import PartnerCompainies from "../HomeComponent/PartnerCompainies";
+import SuccessStory from "./SuccessStory/SuccessStory";
 // import SoftAurora from "../softAurora/SoftAurora";
 function Home() {
   return (
@@ -63,6 +65,7 @@ function Home() {
      
       <section className="py-20">
         <SellAndNumber />
+
       </section>
 
       <section className=" py-3 bg-white">
@@ -81,6 +84,13 @@ function Home() {
       </section>
       <section className="bg-[#000000]">
          <SolutionForEveryNeed/>
+      </section>
+
+       <section className="bg-[#000000]">
+         <PartnerCompainies/>
+      </section>
+      <section className="bg-[#000000]">
+         <SuccessStory/>
       </section>
     </div>
   );
