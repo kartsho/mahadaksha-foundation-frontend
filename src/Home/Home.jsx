@@ -1,5 +1,6 @@
 import Slider from "../logoSlider/Slider";
 import { FaArrowRight } from "react-icons/fa";
+import RatingStar from "../rating/RatingStar";
 import Rating from "./Rating";
 import SellAndNumber from "./SellAndNumber";
 import WhyMahadaksha from "./WhyMahadaksha";
@@ -9,6 +10,7 @@ import SeeOurWork from "../HomeComponent/SeeOurWork";
 import SolutionForEveryNeed from "./SolutionForEveryNeed";
 import PartnerCompainies from "../HomeComponent/PartnerCompainies";
 import SuccessStory from "./SuccessStory/SuccessStory";
+
 // import SoftAurora from "../softAurora/SoftAurora";
 function Home() {
   return (
@@ -91,6 +93,10 @@ function Home() {
       </section>
       <section className="bg-[#000000]">
          <SuccessStory/>
+      </section>
+
+       <section className="bg-[#000000]">
+         <RatingStar/>
       </section>
     </div>
   );

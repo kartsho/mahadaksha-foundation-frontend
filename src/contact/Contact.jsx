@@ -1,9 +1,18 @@
 import React from 'react'
+import Hero from './Hero'
+import InputField from './InputField'
 
 function Contact() {
   return (
-    <div absolute inset-0 flex  items-center justify-center text-center h-2 w-2 m-30>Contact</div>
+<div className='bg-black w-full '>
+      <section className='bg-black'>
+        <Hero/>
+      </section>
+       <section className='bg-black'>
+        <InputField/>
+      </section>
+</div>
   )
 }
 
-export default Contact
+export default Contact  
