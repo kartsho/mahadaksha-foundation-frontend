@@ -4,7 +4,7 @@ import business from '../assets/business.avif'
 import early from '../assets/earlyAcess.avif'
 import enterPrices from '../assets/enterPrices.avif'
 import productTeam from '../assets/productTeam.avif'
-
+import { useNavigate } from "react-router-dom";
 
     const cardData = {
     early: {
@@ -138,6 +138,8 @@ function SolutionForEveryNeed() {
 export default SolutionForEveryNeed;
 
 function Card({ heading, description, notices, image ,btn1,btn2}) {
+     const navigate = useNavigate();
+
     return (
         <div className=" p-12  ml-5 mr-5">
 
@@ -171,7 +173,9 @@ function Card({ heading, description, notices, image ,btn1,btn2}) {
 
                     </div>
                     <div className="mt-3 flex gap-10">
-                        <button className="hover:bg-[#CFBFF7] bg-[#561DE2] px-3 hover-3d cursor-pointer rounded-2xl text-white font-semibold p-1">
+                        <button className="hover:bg-[#CFBFF7] bg-[#561DE2] px-3 hover-3d cursor-pointer rounded-2xl text-white font-semibold p-1"
+                            onClick={() => navigate("/contact")}
+                        >
                             {btn1}
                         </button>
                         <button className="hover:bg-[#CFBFF7] bg-[#242436] px-3 hover-3d cursor-pointer rounded-2xl text-[#4A1BBE] font-semibold p-1">
