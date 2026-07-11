@@ -1,5 +1,6 @@
 import Slider from "../logoSlider/Slider";
 import { FaArrowRight } from "react-icons/fa";
+import RatingStar from "../rating/RatingStar";
 import Rating from "./Rating";
 import SellAndNumber from "./SellAndNumber";
 import WhyMahadaksha from "./WhyMahadaksha";
@@ -9,8 +10,11 @@ import SeeOurWork from "../HomeComponent/SeeOurWork";
 import SolutionForEveryNeed from "./SolutionForEveryNeed";
 import PartnerCompainies from "../HomeComponent/PartnerCompainies";
 import SuccessStory from "./SuccessStory/SuccessStory";
+import { Contact } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 // import SoftAurora from "../softAurora/SoftAurora";
 function Home() {
+   const navigate = useNavigate();
   return (
     <div className="relative w-full bg-black">
     
@@ -44,7 +48,7 @@ function Home() {
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={() => navigate("/contact")} >
             Get Started <FaArrowRight />
           </button>
 
@@ -91,6 +95,10 @@ function Home() {
       </section>
       <section className="bg-[#000000]">
          <SuccessStory/>
+      </section>
+
+       <section className="bg-[#000000]">
+         <RatingStar/>
       </section>
     </div>
   );
