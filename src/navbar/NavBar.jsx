@@ -59,28 +59,15 @@ function NavBar() {
           <NavLink to="/event" className={({ isActive }) => isActive ? "text-red-500 font-bold" : "text-white font-bold"}>
             Events
           </NavLink>
+
+          <NavLink to="/event/event-in-detailed" className={({ isActive }) => isActive ? "text-red-500 font-bold" : "text-white font-bold"}>
+            
+          </NavLink>
         </nav>
 
         {/* Button */}
         <div className="flex items-center">
-          <button
-            className="
-              flex
-              items-center
-              gap-2
-              bg-cyan-500
-              hover:bg-cyan-600
-              text-white
-              px-6
-              py-3
-              rounded-xl
-              transition-all
-              duration-300
-            "
-          >
-            Career
-            <FaArrowRight />
-          </button>
+         <button className="btn hover:btn-outline bg-[#13a6ea] hover:btn-primary text-white font-bold ">Carrer <FaArrowRight/></button>
         </div>
       </div>
     </header>
