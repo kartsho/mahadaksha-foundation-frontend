@@ -10,6 +10,7 @@ import Products from './products/Products'
 import Services from './services/Services';
 import Footer from './footer/Footer';
 import ScrollTop from './scrollTop/ScrollTop';
+import EventDetailed from './event/EventDetailed';
 // import HeadLine from './Home/HeadLine'
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/event" element={<Event />} />
         <Route path="/product" element={<Products />} />
            <Route path="/services" element={<Services />} />
+           <Route path="/event/event-in-detailed" element={<EventDetailed />} />
       </Routes>
       
 

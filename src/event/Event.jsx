@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { CiCalendar } from "react-icons/ci";
+import EventDetailed from './EventDetailed';
 function Event() {
  const data = 
   {
@@ -15,7 +16,7 @@ function Event() {
       Agenda2 : '11:30 AM – Building scalable architecture from day one',
       Agenda3 : '02:00 PM – Team collaboration and delivery rituals',
       Agenda4 : '04:00 PM – Open clinic and Q&A with product advisors',
-      Location : <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512535.1781478856!2d77.29231040230371!3d12.987769307571995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1783703798398!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+      Location : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512535.1781478856!2d77.29231040230371!3d12.987769307571995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1783703798398!5m2!1sen!2sin",
       image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -34,7 +35,7 @@ function Event() {
         Agenda2: '12:00 PM Day 1 – Mentor rounds and architecture checks',
         Agenda3: '08:00 PM Day 1 – Midnight sprint checkpoint',
         Agenda4: '03:00 PM Day 2 – Product demos and final judging',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -52,7 +53,7 @@ function Event() {
         Agenda2: '11:00 AM Day 1 – Reliability design clinic',
         Agenda3: '08:00 PM Day 1 – Night sprint checkpoint',
         Agenda4: '01:00 PM Day 2 – Final demos and scoring',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d259010.78451187903!2d76.13730739775555!3d9.986500065414937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6bf%3A0xbd582caa5844192!2sKochi%2C%20Kerala!5e1!3m2!1sen!2sin!4v1783739390960!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d259010.78451187903!2d76.13730739775555!3d9.986500065414937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6bf%3A0xbd582caa5844192!2sKochi%2C%20Kerala!5e1!3m2!1sen!2sin!4v1783739390960!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -70,7 +71,7 @@ function Event() {
         Agenda2: '12:00 PM Day 1 – Mentor rounds and architecture checks',
         Agenda3: '08:00 PM Day 1 – Midnight sprint checkpoint',
         Agenda4: '03:00 PM Day 2 – Product demos and final judging',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -88,7 +89,7 @@ function Event() {
         Agenda2: '12:00 PM Day 1 – Mentor rounds and architecture checks',
         Agenda3: '08:00 PM Day 1 – Midnight sprint checkpoint',
         Agenda4: '03:00 PM Day 2 – Product demos and final judging',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501888.7026263036!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1783704412949!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -108,7 +109,7 @@ function Event() {
         Agenda2: '08:00 PM – Opening address from Chief Guest',
         Agenda3: '08:30 PM – Award presentations across 10 categories',
         Agenda4: '10:00 PM – Keynote: India`s decade of startup leadership',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.5059484336084!2d77.11877507549788!3d28.553184975708184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c69140ab7a9%3A0x22f2522c2e0e742f!2sJW%20Marriott%20Hotel%20New%20Delhi%20Aerocity!5e1!3m2!1sen!2sin!4v1783706535623!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.5059484336084!2d77.11877507549788!3d28.553184975708184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c69140ab7a9%3A0x22f2522c2e0e742f!2sJW%20Marriott%20Hotel%20New%20Delhi%20Aerocity!5e1!3m2!1sen!2sin!4v1783706535623!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -126,7 +127,7 @@ function Event() {
         Agenda2: '07:45 PM – Opening remarks and industry state of the union',
         Agenda3: '08:15 PM – Award presentations: Six categories',
         Agenda4: '10:00 PM – After-party and networking',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -143,7 +144,7 @@ function Event() {
         Agenda2: '07:45 PM – Opening keynote and jury address',
         Agenda3: '08:30 PM – Award presentations and winner stories',
         Agenda4: '09:45 PM – Community dinner and media interactions',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.987344739022!2d77.17027887549956!3d28.597452575683974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d403e2dc097%3A0x51edde23b436f8b2!2sITC%20Maurya%2C%20Akhaura%20Block%2C%20Bapu%20dham%2C%20Chanakyapuri%2C%20New%20Delhi%2C%20Delhi%20110021!5e1!3m2!1sen!2sin!4v1783738347282!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.987344739022!2d77.17027887549956!3d28.597452575683974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d403e2dc097%3A0x51edde23b436f8b2!2sITC%20Maurya%2C%20Akhaura%20Block%2C%20Bapu%20dham%2C%20Chanakyapuri%2C%20New%20Delhi%2C%20Delhi%20110021!5e1!3m2!1sen!2sin!4v1783738347282!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -161,7 +162,7 @@ function Event() {
         Agenda2: '07:45 PM – Opening remarks and industry state of the union',
         Agenda3: '08:15 PM – Award presentations: Six categories',
         Agenda4: '10:00 PM – After-party and networking',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -180,7 +181,7 @@ function Event() {
         Agenda2: 'Day 2 – PI Planning simulation: Full team exercise',
         Agenda3: 'Day 3 – OKRs, metrics, and retrospective design',
         Agenda4: 'Daily – Team coaching and implementation planning',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -197,7 +198,7 @@ function Event() {
         Agenda2: 'Day 2 – PI Planning simulation: Full team exercise',
         Agenda3: 'Day 3 – OKRs, metrics, and retrospective design',
         Agenda4: 'Daily – Team coaching and implementation planning',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" ,
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -217,7 +218,7 @@ function Event() {
         Agenda2: 'Day 2 – PI Planning simulation: Full team exercise',
         Agenda3: 'Day 3 – OKRs, metrics, and retrospective design',
         Agenda4: 'Daily – Team coaching and implementation planning',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -234,7 +235,7 @@ function Event() {
         Agenda2: 'Day 2 – PI Planning simulation: Full team exercise',
         Agenda3: 'Day 3 – OKRs, metrics, and retrospective design',
         Agenda4: 'Daily – Team coaching and implementation planning',
-        Location: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>,
+        Location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin",
         image1 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum8De38pxBcKEkmBC4FJ0YGnIBc3pQT4WWiQjGtOWFXbB_En4nN-ipUQ&s=10',
         image2 : 'https://media.wired.com/photos/5aac56eb491c2d69af42197d/3:2/w_2560%2Cc_limit/Hackathons-RTS12CJ0.jpg',
         image3 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbKIRIFU_SLzgFq8cJYmLeuB-0YeSiY8-XGnDOPCH-YxYsPPNtTe93pE&s=10'
@@ -248,21 +249,44 @@ function Event() {
 
 console.log(data.CommunityEvents);
   return (
-    <div className=''>
+    <div className='relative bg-[#000000] pl-30 pr-30'>
       <div className='bg-black '>
         <h1 className='bg-black pt-30 pb-10 text-white text-4xl font-extrabold flex m-auto items-center justify-center '>Events</h1>
-        <p className='ml-50 mr-50 pl-30 pr-30 items-center justify-center'>
+        <p className='ml-50 mr-50 pl-30 pr-30 items-center justify-center text-white/80'>
           Explore upcoming workshops, hackathons, live recognitions, events, and corporate training sessions. From small meetups to large-scale summits, every experience is curated to inspire collaboration and product excellence.
         </p>
       </div>
-    <div className='grid grid-cols-3 '>
+      <div className='flex m-auto items-center justify-center mt-20 gap-7 mb-30 text-white font-semibold  py-1 w-max  '>
+        <section className='hover:bg-[#292349] px-2 py-1 text-sm  outline-1  rounded-2xl'>
+          Workshops
+        </section>
+        <section className='hover:bg-[#292349] px-2 py-1 text-xs  outline-1 rounded-2xl'>
+          Hackathons
+        </section>
+        <section className='hover:bg-[#292349] px-2 py-1 text-xs outline-1  rounded-2xl'>
+          Live Recognitions
+        </section>
+        <section className='hover:bg-[#292349] px-2 py-1 text-xs outline-1  rounded-2xl'>
+          Corporate Training
+        </section>
+
+        <section className='hover:bg-[#292349] px-2 py-1 outline-1 text-xs rounded-2xl'>
+          Community Events
+        </section>
+      </div>
+
+      <div className='mb-3'>
+        <h1 className=' text-white text-2xl font-semibold'>All Events</h1>
+      </div>
+
+    <div className='grid grid-cols-3 ml-30 mr-30 h-max w-max m-auto'>
     {Object.entries(data).map(([category, events]) => (
       <div key={category}>
         
 
         {events.map((item, index) => (
           <div key={index}>
-           <Ecard item={item}/>
+           <Ecard item={item} category={category} />
           </div>
         ))}
       </div>
@@ -273,13 +297,34 @@ console.log(data.CommunityEvents);
 }
 
 export default Event
+import { useNavigate } from "react-router-dom";
 
 
-export const Ecard = ({item}) =>{
-  
+export const Ecard = ({item,category}) =>{
+  console.log(category)
+  const navigate = useNavigate();
+
   return(
-    <div>
-      <div>
+    <div className='p-2  '>
+      <div className='card'>
+        <div>
+          <img className='h-32 w-56 pt-0' src={item.titleImage} alt="" />
+          <div className='flex text-xs pt-2 justify-between items-center '>
+            <section className='hover:bg-[#292349] px-1 outline-white text-white text-xs  outline-1  rounded-2xl'>{category}</section>
+            <section>UPCOMING</section>
+          </div>
+          <div className='flex flex-col text-xs pt-3 font-semibold text-red-600 hover:cursor-pointer ' onClick={() =>
+    navigate("/event/event-in-detailed", {
+      state: {
+        item,
+        category,
+      },
+    })
+  } >
+            <section>{item.title}</section>
+            <section className='flex items-center text-white text-xs pt-2 gap-2'><CiCalendar/>{item.Date}</section>
+          </div>
+        </div>
         
       </div>
     </div>
@@ -323,5 +368,5 @@ export const Ecard = ({item}) =>{
             <p>{item.Venue}</p>
 
             <p>{item.NoRegi}</p>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.0788556094953!2d77.58341762507688!3d12.9941096873233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1640b976be87%3A0x7ab29f2e655f7f7d!2sITC%20WINDSOR%2C%20Abshot%20Layout%2C%20Vasanth%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560001!5e1!3m2!1sen!2sin!4v1783737667370!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 }*/
