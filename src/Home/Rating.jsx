@@ -1,10 +1,16 @@
 import React from 'react'
 import { Star } from "lucide-react";
-
+import { motion } from "framer-motion";
 export default function Rating() {
   return (
     <div className="flex items-center gap-10 text-white">
       {/* Left Side */}
+         {/* <motion.div
+                      initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          > */}
       <div className="flex items-center">
         {/* Avatars */}
         <div className="flex -space-x-4">
@@ -52,6 +58,7 @@ export default function Rating() {
           <span className="text-gray-400 font-normal"> rating</span>
         </span>
       </div>
+      {/* </motion.div> */}
     </div>
   );
 }

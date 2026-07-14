@@ -119,7 +119,7 @@ function Event() {
         title: 'Engineering Excellence Awards 2025',
         titleImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo9z7TnwlIT4mXgPP9Iz76L8Yv3ZkHuDON_HC_Dz8nAhvObIfBBkzp2xNt&s=10',
         description: `The Engineering Excellence Awards recognise the builders behind the products — the engineers, architects, and platform teams that power India's fastest-growing technology companies. Categories include Best Engineering Culture, Most Impactful Open Source Contribution, Engineering Leader of the Year, and Platform Infrastructure Innovation.`,
-        Date: 'August 02, 2025',
+        Date: 'August 02, 2026',
         Time: '07:00 PM – 10:30 PM IST',
         Venue: 'ITC Windsor Grand Ballroom Bangalore, India',
         NoRegi: 986,
@@ -136,7 +136,7 @@ function Event() {
         title: 'Digital Innovation Recognition Night',
         titleImage : 'https://rhinosdjs.ca/wp-content/uploads/2025/06/Future-Nightclub-Entertainment-Trends.jpg',
         description: 'This recognition night spotlighted the teams and leaders behind measurable digital outcomes in product, engineering, and operations. Awards were judged on implementation quality, customer impact, and long-term sustainability. The evening featured five spotlight stories with practical lessons from winning teams.',
-        Date: 'November 09, 2024',
+        Date: 'November 09, 2026',
         Time: '07:00 PM – 10:30 PM IST',
         Venue: 'TC Maurya Convention Hall New Delhi, India',
         NoRegi: 1543,
@@ -154,7 +154,7 @@ function Event() {
         title: 'Engineering Excellence Awards 2025',
         titleImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo9z7TnwlIT4mXgPP9Iz76L8Yv3ZkHuDON_HC_Dz8nAhvObIfBBkzp2xNt&s=10',
         description: `The Engineering Excellence Awards recognise the builders behind the products — the engineers, architects, and platform teams that power India's fastest-growing technology companies. Categories include Best Engineering Culture, Most Impactful Open Source Contribution, Engineering Leader of the Year, and Platform Infrastructure Innovation.`,
-        Date: 'August 02, 2025',
+        Date: 'August 02, 2026',
         Time: '07:00 PM – 10:30 PM IST',
         Venue: 'ITC Windsor Grand Ballroom Bangalore, India',
         NoRegi: 986,
@@ -190,7 +190,7 @@ function Event() {
         title: 'Corporate Training Sprint: Product Teams',
         titleImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvcc9kAzMWniwCYIXZvJbJbLxxUx2Eh82gH2c3RR1R1yo9vX3ihefr5z5X&s=10',
         description: `A structured training sprint for enterprise teams on modern product delivery. Covers user-centric design, technical decision-making, and team collaboration workflows. Post-event surveys reported a 41% average increase in team confidence around product decision-making frameworks.`,
-        Date: 'July 21–23, 2025',
+        Date: 'July 21–23, 2027',
         Time: '08:30 AM – 05:30 PM IST',
         Venue: 'HITEX Exhibition Centre Training Block Hyderabad, India',
         NoRegi: 143,
@@ -210,7 +210,7 @@ function Event() {
         title: 'Founder Roundtable: East India Edition',
         titleImage : 'https://media.licdn.com/dms/image/v2/C5612AQFdINWhPZprXQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520219208427?e=2147483647&v=beta&t=OWPnDKS0yXhuJW4cmq-rtULKbKw9YNjQbW8BP-xzkhQ',
         description: `A curated founder-only roundtable bringing together entrepreneurs from West Bengal, Odisha, Jharkhand, and the Northeast. Structured discussions around fundraising in non-metro markets, building distributed teams, and regional go-to-market strategies. Hosted in partnership with Bengal Angel Network. Attendance is invite-only with application screening to maintain signal quality.`,
-        Date: 'July 21–23, 2025',
+        Date: 'July 21–23, 2026',
         Time: '08:30 AM – 05:30 PM IST',
         Venue: 'HITEX Exhibition Centre Training Block Hyderabad, India',
         NoRegi: 143,
@@ -227,7 +227,7 @@ function Event() {
         title: 'Women in Tech Leadership Summit',
         titleImage : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkTN5Bdk8nMemwXuoAmo8ugvivekpnKmzCDWDN3DEzSAxVnF6XF9TylOnR&s=10',
         description: `India's most attended summit for women in technology leadership. This year's edition featured 28 speakers across keynotes, panels, and workshops covering negotiation, technical career growth, entrepreneurship, and navigating bias in the workplace. The summit also launched the WiT Mentorship Network, pairing 200 early-career women with senior industry mentors for a six-month structured engagement.`,
-        Date: 'July 21–23, 2025',
+        Date: 'July 21–23, 2026',
         Time: '08:30 AM – 05:30 PM IST',
         Venue: 'HITEX Exhibition Centre Training Block Hyderabad, India',
         NoRegi: 143,
@@ -279,17 +279,17 @@ console.log(data.CommunityEvents);
         <h1 className=' text-white text-2xl font-semibold'>All Events</h1>
       </div>
 
-    <div className='grid grid-cols-3 ml-30 mr-30 h-max w-max m-auto'>
+    <div className='mt-10 grid     grid-cols-3 ml-30 mr-30 h-max w-max m-auto '>
     {Object.entries(data).map(([category, events]) => (
-      <div key={category}>
+        <React.Fragment key={category}>
         
 
         {events.map((item, index) => (
-          <div key={index}>
+          <div key={index} className='h-max w-max ' >
            <Ecard item={item} category={category} />
           </div>
         ))}
-      </div>
+       </React.Fragment>
     ))}
   </div>
     </div>
@@ -306,7 +306,7 @@ export const Ecard = ({item,category}) =>{
 
   return(
     <div className='p-2  '>
-      <div className='card'>
+      <div className='card '>
         <div>
           <img className='h-32 w-56 pt-0' src={item.titleImage} alt="" />
           <div className='flex text-xs pt-2 justify-between items-center '>
