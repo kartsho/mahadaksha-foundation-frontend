@@ -12,11 +12,18 @@ import PartnerCompainies from "../HomeComponent/PartnerCompainies";
 import SuccessStory from "./SuccessStory/SuccessStory";
 import { Contact } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 // import SoftAurora from "../softAurora/SoftAurora";
 function Home() {
    const navigate = useNavigate();
   return (
     <div className="relative w-full bg-black">
+       <motion.div
+                            initial={{ opacity: 0, y: 80 }}
+                  whileInView={{ opacity: 1, y: 2 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                >
     
       {/* <div className="absolute inset-0 -z-10">
         <SoftAurora />
@@ -65,7 +72,7 @@ function Home() {
           <Slider />
         </div>
       </section>
-
+</motion.div>
      
       <section className="py-20">
         <SellAndNumber />
@@ -100,6 +107,7 @@ function Home() {
        <section className="bg-[#000000]">
          <RatingStar/>
       </section>
+      
     </div>
   );
 }

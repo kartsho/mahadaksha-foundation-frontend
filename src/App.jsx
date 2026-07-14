@@ -11,6 +11,7 @@ import Services from './services/Services';
 import Footer from './footer/Footer';
 import ScrollTop from './scrollTop/ScrollTop';
 import EventDetailed from './event/EventDetailed';
+import Carrer from './carrer/Carrer';
 // import HeadLine from './Home/HeadLine'
 function App() {
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="/product" element={<Products />} />
            <Route path="/services" element={<Services />} />
            <Route path="/event/event-in-detailed" element={<EventDetailed />} />
+           <Route path="/event" element={<Carrer />} />
+             <Route path="/services" element={<Services />} />
       </Routes>
       
 

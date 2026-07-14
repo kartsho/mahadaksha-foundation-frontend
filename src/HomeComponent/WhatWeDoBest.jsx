@@ -9,7 +9,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-
+import {motion} from 'framer-motion';
 function WhatWeDoBest() {
     const cardDes = [               
         {
@@ -70,6 +70,7 @@ function WhatWeDoBest() {
         Comprehensive IT services designed to help businesses grow and professionals thrive.
     </p>
     </div>
+      
       <div className='grid grid-cols-3 gap-4  '>
         {
             cardDes.map((cardDes)=>(
@@ -96,6 +97,12 @@ export function BestCard({
   return (
     <div className="m-5 bg-[#13111F] ml-20 mr-20 font-bold  " >
       <div className='bg-[#13111F] '>
+          <motion.div
+                initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 2 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+    >
         <Card sx={{ maxWidth: 535 }}  className='bg-[#13111F] rounded-3xl '>
         <CardActionArea className='bg-[#13111F]'>
 {/* className='bg-[#13111F]' */}
@@ -115,6 +122,7 @@ export function BestCard({
           </CardContent>
         </CardActionArea>
       </Card>
+      </motion.div>
       </div>
     </div>
   );

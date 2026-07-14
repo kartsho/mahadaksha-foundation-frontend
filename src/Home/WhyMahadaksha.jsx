@@ -2,9 +2,16 @@ import React from 'react'
 import { BsStars } from "react-icons/bs";
 import mahadaksha from '../assets/WhyMahaDaksha.jpg'
 import HowWeWork from '../HomeComponent/HowWeWork';
+import { motion } from "framer-motion";
 function WhyMahadaksha() {
     return (
         <div className='bg-[#FFFFFF] relative ml-20 mr-20  '>
+             <motion.div
+                initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 2 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+    >
             <div className=' flex  text-blue-800 justify-center mt-10 font-bold items-center gap-2'>
                 <h3 className='text-l'>
                     <BsStars />
@@ -44,6 +51,7 @@ function WhyMahadaksha() {
                 <img className=' flex   h-max w-max  m-auto rounded-2xl' src={mahadaksha} alt="" />
             </div>
             <HowWeWork/>
+            </motion.div>
         </div>
     )
 }
