@@ -26,11 +26,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/product" element={<Products />} />
+        <Route path="/products" element={<Products />} />
            <Route path="/services" element={<Services />} />
            <Route path="/event/event-in-detailed" element={<EventDetailed />} />
-           <Route path="/event" element={<Carrer />} />
-             <Route path="/services" element={<Services />} />
+           <Route path="/carrer" element={<Carrer />} />
       </Routes>
       
 
