@@ -248,52 +248,124 @@ function Event() {
 
 
 console.log(data.CommunityEvents);
-  return (
-    <div className='relative bg-[#000000] pl-30 pr-30'>
-      <div className='bg-black '>
-        <h1 className='bg-black pt-30 pb-10 text-white text-4xl font-extrabold flex m-auto items-center justify-center '>Events</h1>
-        <p className='ml-50 mr-50 pl-30 pr-30 items-center justify-center text-white/80'>
-          Explore upcoming workshops, hackathons, live recognitions, events, and corporate training sessions. From small meetups to large-scale summits, every experience is curated to inspire collaboration and product excellence.
-        </p>
-      </div>
-      <div className='flex m-auto items-center justify-center mt-20 gap-7 mb-30 text-white font-semibold  py-1 w-max  '>
-        <section className='hover:bg-[#292349] px-2 py-1 text-sm  outline-1  rounded-2xl'>
-          Workshops
-        </section>
-        <section className='hover:bg-[#292349] px-2 py-1 text-xs  outline-1 rounded-2xl'>
-          Hackathons
-        </section>
-        <section className='hover:bg-[#292349] px-2 py-1 text-xs outline-1  rounded-2xl'>
-          Live Recognitions
-        </section>
-        <section className='hover:bg-[#292349] px-2 py-1 text-xs outline-1  rounded-2xl'>
-          Corporate Training
-        </section>
+ return (
+  <div className="relative bg-[#000000] px-5 sm:px-8 md:px-12 lg:px-20 xl:px-28">
 
-        <section className='hover:bg-[#292349] px-2 py-1 outline-1 text-xs rounded-2xl'>
-          Community Events
-        </section>
-      </div>
+    {/* Heading */}
 
-      <div className='mb-3'>
-        <h1 className=' text-white text-2xl font-semibold'>All Events</h1>
-      </div>
+    <div className="pt-20 md:pt-28">
 
-    <div className='mt-10 grid     grid-cols-3 ml-30 mr-30 h-max w-max m-auto '>
-    {Object.entries(data).map(([category, events]) => (
-        <React.Fragment key={category}>
-        
+      <h1 className="text-white text-3xl md:text-5xl font-extrabold text-center">
+        Events
+      </h1>
 
-        {events.map((item, index) => (
-          <div key={index} className='h-max w-max ' >
-           <Ecard item={item} category={category} />
-          </div>
-        ))}
-       </React.Fragment>
-    ))}
-  </div>
+      <p
+        className="
+        mt-6
+        max-w-5xl
+        mx-auto
+        text-center
+        text-white/80
+        text-sm
+        md:text-base
+        leading-7
+      "
+      >
+        Explore upcoming workshops, hackathons, live recognitions,
+        events, and corporate training sessions. From small meetups
+        to large-scale summits, every experience is curated to inspire
+        collaboration and product excellence.
+      </p>
+
     </div>
-  )
+
+    {/* Categories */}
+
+    <div
+      className="
+      flex
+      flex-wrap
+      justify-center
+      gap-3
+      md:gap-5
+      mt-14
+      mb-16
+    "
+    >
+
+      {[
+        "Workshops",
+        "Hackathons",
+        "Live Recognitions",
+        "Corporate Training",
+        "Community Events",
+      ].map((item) => (
+
+        <section
+          key={item}
+          className="
+          cursor-pointer
+          px-4
+          py-2
+          text-xs
+          md:text-sm
+          rounded-full
+          border
+          border-white
+          text-white
+          hover:bg-[#292349]
+          transition
+        "
+        >
+          {item}
+        </section>
+
+      ))}
+
+    </div>
+
+    {/* Heading */}
+
+    <h2 className="text-white text-2xl md:text-3xl font-bold mb-10">
+      All Events
+    </h2>
+
+    {/* Cards */}
+
+    <div
+      className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-3
+      xl:grid-cols-4
+      gap-8
+      pb-20
+    "
+    >
+
+      {Object.entries(data).map(([category, events]) => (
+
+        <React.Fragment key={category}>
+
+          {events.map((item, index) => (
+
+            <Ecard
+              key={index}
+              item={item}
+              category={category}
+            />
+
+          ))}
+
+        </React.Fragment>
+
+      ))}
+
+    </div>
+
+  </div>
+)
 }
 
 export default Event
@@ -307,10 +379,22 @@ export const Ecard = ({item,category}) =>{
   return(
     <div className='p-2  '>
       <div className='card '>
-        <div>
+        <div >
           <img className='h-32 w-56 pt-0' src={item.titleImage} alt="" />
           <div className='flex text-xs pt-2 justify-between items-center '>
-            <section className='hover:bg-[#292349] px-1 outline-white text-white text-xs  outline-1  rounded-2xl'>{category}</section>
+              <span
+            className="
+            px-3
+            py-1
+            text-[11px]
+            rounded-full
+            border
+            border-white
+            text-white
+          "
+          >
+            {category}
+          </span>
             <section>UPCOMING</section>
           </div>
           <div className='flex flex-col text-xs pt-3 font-semibold text-red-600 hover:cursor-pointer ' onClick={() =>
@@ -321,7 +405,15 @@ export const Ecard = ({item,category}) =>{
       },
     })
   } >
-            <section>{item.title}</section>
+            <section  className="
+          text-white
+          font-semibold
+          mt-4
+          text-lg
+          hover:text-cyan-400
+          transition
+          line-clamp-2
+        ">{item.title}</section>
             <section className='flex items-center text-white text-xs pt-2 gap-2'><CiCalendar/>{item.Date}</section>
           </div>
         </div>

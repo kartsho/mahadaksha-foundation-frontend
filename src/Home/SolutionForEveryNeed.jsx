@@ -65,137 +65,139 @@ import { useNavigate } from "react-router-dom";
 };
 
 function SolutionForEveryNeed() {
-    const [activeTab, setActiveTab] = useState("early");
+  const [activeTab, setActiveTab] = useState("early");
 
-    return (
-        <div className="bg-black px-20 py-24">
+  return (
+    <section className="bg-black py-16 sm:py-20 lg:py-24 px-6 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+      {/* Heading */}
+      <div className="text-center max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+          Solutions For Every Need
+        </h1>
 
-          
-            <div className="text-center">
-                <h1 className="text-5xl font-extrabold text-white">
-                    Solutions For Every Need
-                </h1>
+        <p className="text-gray-400 text-sm sm:text-base lg:text-lg mt-4">
+          Whether you're a startup founder, a student, or an enterprise —
+          MAHADAKSHA has you covered.
+        </p>
+      </div>
 
-                <p className="text-gray-400 text-xl mt-5">
-                    Whether you're a startup founder, a student, or an enterprise —
-                    MAHADAKSHA has you covered.
-                </p>
-            </div>
+      {/* Tabs */}
+      <div className="flex justify-center mt-10">
+        <div className="bg-[#13111F] p-2 rounded-xl flex flex-wrap justify-center gap-2 max-w-full">
+          <button
+            onClick={() => setActiveTab("early")}
+            className={`px-4 py-2 rounded-xl text-sm sm:text-base transition-all duration-300 ${
+              activeTab === "early"
+                ? "bg-[#1D1B29] border border-[#3C1AD3] text-white"
+                : "text-gray-300 hover:bg-[#1D1B29]"
+            }`}
+          >
+            Early Access
+          </button>
 
-      
-            <div className="flex justify-center mt-12">
-               <div className='bg-[#13111F] w-max p-1 px-3 flex gap-2 items-center justify-center m-auto mt-15 rounded-xl'>
+          <button
+            onClick={() => setActiveTab("business")}
+            className={`px-4 py-2 rounded-xl text-sm sm:text-base transition-all duration-300 ${
+              activeTab === "business"
+                ? "bg-[#1D1B29] border border-[#3C1AD3] text-white"
+                : "text-gray-300 hover:bg-[#1D1B29]"
+            }`}
+          >
+            Business
+          </button>
 
-                    <button className={`hover:bg-[#1D1B29] px-3 hover-3d cursor-pointer rounded-2xl ${activeTab === "early"
-                                ? "bg-[#1D1B29] border text-white"
-                                : "text-gray-300 hover:bg-[#1D1B29]"
-                            }`}
-                        onClick={() => setActiveTab("early")}
-                        
-                    >
-                        Early Access
-                    </button>
+          <button
+            onClick={() => setActiveTab("product")}
+            className={`px-4 py-2 rounded-xl text-sm sm:text-base transition-all duration-300 ${
+              activeTab === "product"
+                ? "bg-[#1D1B29] border border-[#3C1AD3] text-white"
+                : "text-gray-300 hover:bg-[#1D1B29]"
+            }`}
+          >
+            Product Team
+          </button>
 
-                    <button
-                        onClick={() => setActiveTab("business")}
-                       className={`hover:bg-[#1D1B29] px-3 hover-3d cursor-pointer rounded-2xl ${activeTab === "business"
-                                ? "bg-[#1D1B29] border text-white"
-                                : "text-gray-300 hover:bg-[#1D1B29]"
-                            }`}
-                    >
-                        Business
-                    </button>
-
-                    <button
-                        onClick={() => setActiveTab("product")}
-                       className={`hover:bg-[#1D1B29] px-3 hover-3d cursor-pointer rounded-2xl ${activeTab === "product"
-                                ? "bg-[#1D1B29] border text-white"
-                                : "text-gray-300 hover:bg-[#1D1B29]"
-                            }`}
-                    >
-                        Product Team
-                    </button>
-
-                    <button
-                        onClick={() => setActiveTab("enterprise")}
-                       className={`hover:bg-[#1D1B29] px-3 hover-3d cursor-pointer rounded-2xl ${activeTab === "enterprise"
-                                ? "bg-[#1D1B29] border text-white"
-                                : "text-gray-300 hover:bg-[#1D1B29]"
-                            }`}
-                    >
-                        Enterprises
-                    </button>
-
-                </div>
-            </div>
-
-           
-            <Card {...cardData[activeTab]} />
+          <button
+            onClick={() => setActiveTab("enterprise")}
+            className={`px-4 py-2 rounded-xl text-sm sm:text-base transition-all duration-300 ${
+              activeTab === "enterprise"
+                ? "bg-[#1D1B29] border border-[#3C1AD3] text-white"
+                : "text-gray-300 hover:bg-[#1D1B29]"
+            }`}
+          >
+            Enterprises
+          </button>
         </div>
-    );
+      </div>
+
+      <Card {...cardData[activeTab]} />
+    </section>
+  );
 }
 
 export default SolutionForEveryNeed;
 
-function Card({ heading, description, notices, image ,btn1,btn2}) {
-     const navigate = useNavigate();
+function Card({
+  heading,
+  description,
+  notices,
+  image,
+  btn1,
+  btn2,
+}) {
+  const navigate = useNavigate();
 
-    return (
-        <div className=" p-12  ml-5 mr-5">
+  return (
+    <div className="max-w-7xl mx-auto mt-14">
+      <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
 
-            <div className=" md:grid-cols-2 flex gap-15 items-center">
+        {/* Left Content */}
+        <div className="flex-1 w-full max-w-xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+            {heading}
+          </h2>
 
-               
-                <div className="flex-1">
+          <p className="text-gray-400 mt-5 text-sm sm:text-base leading-7">
+            {description}
+          </p>
 
-                    <h2 className="text-2xl font-bold text-white">
-                        {heading}
-                    </h2>
+          <div className="mt-6 space-y-4">
+            {notices.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 text-gray-300 text-sm sm:text-base"
+              >
+                <span className="bg-[#201446] p-2 rounded-full text-[#7C4DF5] flex-shrink-0">
+                  <BsCheckLg size={12} />
+                </span>
 
-                    <p className="text-gray-400 mt-3 leading-6">
-                        {description}
-                    </p>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
 
-                    <div className="mt-1 space-y-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => navigate("/contact")}
+              className="mt-6 btn btn-primary font-medium"
+            >
+              {btn1}
+            </button>
 
-                        {notices.map((item, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center gap-1 text-gray-300 leading-6"
-                            >
-                                <span className='bg-[#201446] p-[2px] rounded-full hover:bg-[#12101D] '>
-                                    <BsCheckLg />
-                                </span>
-
-                                <span>{item}</span>
-                            </div>
-                        ))}
-
-                    </div>
-                    <div className="mt-3 flex gap-10">
-                        <button className="hover:bg-[#CFBFF7] bg-[#561DE2] px-3 hover-3d cursor-pointer rounded-2xl text-white font-semibold p-1"
-                            onClick={() => navigate("/contact")}
-                        >
-                            {btn1}
-                        </button>
-                        <button className="hover:bg-[#CFBFF7] bg-[#242436] px-3 hover-3d cursor-pointer rounded-2xl text-[#4A1BBE] font-semibold p-1">
-                            {btn2}
-                        </button >
-                    </div>
-
-                </div>
-
-                
-                <div className="flex flex-1 justify-center">
-
-                    <div className="w-full h-80 rounded-2xl border border-[#2A2738] bg-[#1B1829] flex items-center justify-center text-gray-500 text-lg">
-                        {image}
-                    </div>
-
-                </div>
-
-            </div>
-
+            <button className="mt-6 btn btn-soft btn-primary font-medium">
+              {btn2}
+            </button>
+          </div>
         </div>
-    );
+
+        {/* Right Image */}
+        <div className="flex-1 w-full flex justify-center">
+          <div className="w-full max-w-[520px] h-[250px] sm:h-[320px] md:h-[380px] lg:h-[420px] rounded-2xl border-[#2A2738] overflow-hidden">
+            {image}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 }

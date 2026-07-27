@@ -1,0 +1,14 @@
+* [33m0a90b8f[m[33m ([m[1;31morigin/contact-feature[m[33m, [m[1;32mcontact-feature[m[33m)[m Added Event page and some developement on service page
+*   [33m9617178[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #2 from kartsho/contact-feature
+[32m|[m[33m\[m  
+[32m|[m * [33mddda5c6[m Added contact form functionalityand added event page
+[32m|[m[32m/[m  
+*   [33mcf64f01[m Merge pull request #1 from kartsho/contact-feature
+[34m|[m[35m\[m  
+[34m|[m * [33mc7c63cc[m scroll top added and make a navbar transparent and completed contact page and some work are done in event page
+[34m|[m * [33m5d41cde[m Added contact form functionality
+[34m|[m * [33m33b497a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mhome-contact-update[m[33m, [m[1;31morigin/home-contact-update[m[33m)[m Added contact page components and rating feature
+[34m|[m[34m/[m  
+* [33m17a3528[m implement Slider in AbousUs page
+* [33m5f86cda[m Updated Home page Ui added Success Story,Solutions For Every Need,See how we work Real solutions for real businesses — from startups to enterprises.,Our Partner Companies
+* [33md14febe[m updated the about section

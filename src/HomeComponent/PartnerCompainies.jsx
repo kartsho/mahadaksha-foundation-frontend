@@ -20,7 +20,7 @@ function PartnerCompainies() {
     }, []);
 
     return (
-        <div className='relative ml-20 mr-20'>
+        <div className='relative ml-20 mr-20 bg-[black]'>
             <div className='flex flex-col gap-3 '>
                 <h1 className='text-white text-4xl font-extrabold m-auto  '>
                     Our Partner Companies
@@ -53,7 +53,7 @@ export default PartnerCompainies
 
 export const DevCard = ({company}) => {
     return (
-        <div className=" flex items-center justify-center bg-[#09090f] p-6 hover-3d">
+        <div className=" flex items-center justify-center bg-[black] pb-30 p-6 hover-3d">
             <div className="w-[300px] rounded-3xl border border-[#3b3458] hover:border-[#6709ff]  bg-[#11111b]/90 p-5 shadow-xl backdrop-blur-sm ">
 
                 

@@ -65,11 +65,11 @@ export function ContactSection() {
     };
 
     return (
-        <section className="relative  overflow-hidden ml-40 mr-40 pt-2 rounded-2xl ">
-<form onSubmit={handleSubmit}>
+        <section className="relative  overflow-hidden m-auto items-center justify-center   pt-2 rounded-2xl  ">
+        <form onSubmit={handleSubmit}>
 
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.7fr_1fr] gap-18 mb-30 ">
+            <div className="relative z-10 max-w-5xl mx-auto px-6 grid lg:grid-cols-[1.7fr_1fr] gap-18 mb-30 ">
 
                
                 <div>
@@ -151,7 +151,9 @@ export function ContactSection() {
                                 <option value='Web Development' >Web Development</option>
                                 <option value='Mobile App' >Mobile App</option>
                                 <option value='UI/UX Design' >UI/UX Design</option>
-                                <option value='Digital Marketing' >Digital Marketing</option>
+                                <option value='Digital Marketing' > Marketing</option>
+                                <option value='Human resources' > Human resources</option>
+                                <option value='Artificial Intelligence and Machine Learning' >Artificial Intelligence and Machine Learning</option>
                             </select>
                         </div>
 

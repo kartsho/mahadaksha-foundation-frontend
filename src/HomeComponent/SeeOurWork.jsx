@@ -1,69 +1,86 @@
-import React from 'react'
-// import workProcess from '../assets/'
-import itImage from '../assets/workers-it-company-working-computer.jpg'
+import React from "react";
+import itImage from "../assets/workers-it-company-working-computer.jpg";
 import { FaArrowRight } from "react-icons/fa";
 import { SlEnergy } from "react-icons/sl";
 import { MdOutlineSecurity } from "react-icons/md";
 import { AiOutlineGlobal } from "react-icons/ai";
-import WhyChooseUs from './WhyChooseUs';
+import WhyChooseUs from "./WhyChooseUs";
 
 function SeeOurWork() {
-    return (
-        <div className='relative mt-64 pb-28 '>
-            <div>
-                <h1 className=' text-4xl flex items-center justify-center text-white font-extrabold' >
-                    See how we work
-                </h1>
-                <p className='  flex items-center justify-center font-semibold mt-2'>
-                    Real solutions for real businesses — from startups to enterprises.
-                </p>
-            </div>
+  return (
+    <section className="relative mt-20 md:mt-28 lg:mt-36 xl:mt-44 pb-20 ">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 xl:px-28 mb-20">
+        {/* Heading */}
+        <div className="text-center">
+          <h1 className="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold">
+            See how we work
+          </h1>
 
-            <div>
-                <div className='relative m-20 flex flex-row items-center justify-center gap-20'>
-
-                    <div className='flex-1 w-full'>
-                        <img className='w-full rounded-2xl p-2 cursor-pointer hover:scale-98 transition-all duration-400' src={itImage} alt="" />
-                    </div>
-
-
-                    <div className='flex-1 w-full'>
-                        <h2 className='text-white text-3xl pl-2 font-bold'>
-                            Built around people, not just technology
-                        </h2>
-                        <p className='text-gray-300 mt-4 ml-3'>
-                            At MAHADAKSHA Foundation, we believe great technology serves people. Every solution we build is designed with your end users in mind — intuitive, reliable, and ready to scale.
-                        </p>
-                        <p className='text-gray-300 mt-4 ml-3'>
-                            Whether you need a custom application, a training program for your team, or expert IT consulting — we bring the expertise and dedication to make it happen.
-                        </p>
-
-                        <div className='grid grid-cols-2 gap-5   mt-8 p-10'>
-                            <div className='flex gap-1 items-center justify-center text-[#F8F9FB]  bg-[#13111F] py-1.5 rounded-4xl'> <span className='text-blue-400 font-bold'><SlEnergy/></span>Fast project delivery
-                            </div>
-
-                            <div className='flex gap-1 items-center text-[#F8F9FB] justify-center bg-[#13111F] p-1.5 rounded-4xl'>
-                               <span className='text-blue-400 font-bold'><MdOutlineSecurity/></span> Enterprise-grade quality
-
-                            </div>
-                            <div className='flex gap-1 items-center justify-center bg-[#13111F] text-[#F8F9FB]  py-1.5 rounded-4xl'>
-                               <span className='text-blue-400 font-bold'><AiOutlineGlobal/></span> Global client reach
-                            </div>
-                        </div>
-
-                        <div className=' flex flex-row gap-2 justify-center items-center text-[#794bec] font-bold bg-[#13111F] w-max py-2 px-3 rounded-4xl cursor-pointer hover:text-[#5c1ff7] cursor-pointer  '>
-                     <button className="cursor-pointer ">Request a Demo </button>< FaArrowRight/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <WhyChooseUs/>
+          <p className="mt-3 text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+            Real solutions for real businesses — from startups to enterprises.
+          </p>
         </div>
-    )
+
+        {/* Content */}
+        <div className="mt-14 flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          {/* Left Image */}
+          <div className="flex-1 flex justify-center">
+            <img
+              src={itImage}
+              alt="Our Work"
+              className="w-full max-w-[500px] h-[240px] sm:h-[300px] md:h-[360px] lg:h-[390px] xl:h-[420px] object-cover rounded-2xl shadow-lg hover:scale-[0.98] transition-all duration-300 cursor-pointer"
+            />
+          </div>
+
+          {/* Right Content */}
+          <div className="flex-1 max-w-xl">
+            <h2 className="text-white text-2xl sm:text-3xl font-bold leading-tight">
+              Built around people, not just technology
+            </h2>
+
+            <p className="mt-5 text-gray-300 text-sm sm:text-[15px] leading-7">
+              At MAHADAKSHA Foundation, we believe great technology serves
+              people. Every solution we build is designed with your end users in
+              mind—intuitive, reliable, and ready to scale.
+            </p>
+
+            <p className="mt-4 text-gray-300 text-sm sm:text-[15px] leading-7">
+              Whether you need a custom application, a training program for your
+              team, or expert IT consulting, we bring the expertise and
+              dedication to help you achieve your goals.
+            </p>
+
+            {/* Features */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+              <div className="flex items-center justify-center gap-2 bg-[#13111F] text-white py-3 px-4 rounded-full text-sm">
+                <SlEnergy className="text-blue-400 text-lg" />
+                <span>Fast project delivery</span>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 bg-[#13111F] text-white py-3 px-4 rounded-full text-sm">
+                <MdOutlineSecurity className="text-blue-400 text-lg" />
+                <span>Enterprise-grade quality</span>
+              </div>
+
+              <div className="sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 bg-[#13111F] text-white py-3 px-4 rounded-full text-sm">
+                <AiOutlineGlobal className="text-blue-400 text-lg" />
+                <span>Global client reach</span>
+              </div>
+            </div>
+
+            {/* Button */}
+            <button className="mt-8 flex items-center gap-2 btn btn-primary">
+              Request a Demo
+              <FaArrowRight className="text-sm" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <WhyChooseUs />
+    </section>
+  );
 }
 
-export default SeeOurWork
-
-
-
-
+export default SeeOurWork; 

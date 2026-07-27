@@ -4,122 +4,188 @@ import { CiCalendar } from "react-icons/ci";
 import { IoIosTime } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
 import { BiSolidGroup } from "react-icons/bi";
+
 import Agenda from "./Agenda";
 import RegistrationCard from "./RegistrationCard";
 import MapCard from "./MapCard";
 import EventInfo from "./EventInfo";
 import EventPhotos from "./EventPhotos";
+
 function EventDetailed() {
   const { state } = useLocation();
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   if (!state) {
-    return <h1 className="text-white bg-black text-6xl h-full w-full flex m-auto items-center justify-center pt-70 pb-70 font-extrabold">No Event Data Found</h1>;
+    return (
+      <h1 className="flex min-h-screen items-center justify-center bg-black px-4 text-center text-2xl font-extrabold text-white sm:text-4xl lg:text-6xl">
+        No Event Data Found
+      </h1>
+    );
   }
 
   const { item, category } = state;
 
   console.log(category);
-  
+
   return (
-    <div className="bg-[#0d0817] min-h-screen">
-      <div className=" h-[500px] overflow-hidden">
+    <div className="min-h-screen bg-[#0d0817]">
+
+
+      <div className="relative h-[520px] sm:h-[560px] md:h-[620px] lg:h-[680px] overflow-hidden">
+
+        {/* Background Image */}
         <img
-        src={item.titleImage}
-        alt={item.title}
-        className="absolute inset-0 w-full h-[90%] opacity-25 object-cover "
-      />
-      </div>
-             
+          src={item.titleImage}
+          alt={item.title}
+          className="absolute inset-0 h-full w-full object-cover opacity-25 "
+        />
 
-        
-         
-       <div className="absolute top-60 left-32 flex flex-row gap-2 text-white text-xs font-semibold ">
-        <button className="flex items-center justify-center gap-2 outline-1 outline-gray-600 p-1 rounded-2xl hover:outline-2 hover:outline-white cursor-pointer" onClick={()=>navigate('/event')} ><FaArrowLeft/> Back to Events</button>
-        <section className="bg-[#0d0817] p-1 rounded-2xl px-2 hover:bg-[#281a44]">{category}</section>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d0817]/30 to-[#0d0817]" />
 
-        
-       </div>
-       <div className="top-70 absolute ml-30 mr-30">
-        <h2 className="text-3xl text-white font-bold mb-5">
+        {/* Hero Content */}
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-5 sm:px-8 lg:px-12">
+                    {/* Back Button + Category */}
+          <div className="mb-8 flex flex-wrap items-center gap-3">
+
+            <button
+              onClick={() => navigate("/event")}
+              className="flex items-center gap-2 rounded-full border border-gray-600 px-4 py-2 text-xs font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 sm:text-sm"
+            >
+              <FaArrowLeft />
+              Back to Events
+            </button>
+
+            <span className="rounded-full bg-[#281a44] px-4 py-2 text-xs font-semibold text-white sm:text-sm">
+              {category}
+            </span>
+
+          </div>
+
+          {/* Event Title */}
+          <h1 className="max-w-5xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             {item.title}
-        </h2>
-        <p className="pr-60 text-sm text-white/80 font-semibold">
+          </h1>
+
+          {/* Event Description */}
+          <p className="mt-6 max-w-3xl text-sm leading-7 text-white/80 sm:text-base">
             {item.description}
-        </p>
-       </div>
-       <div className="absolute flex ml-30 mr-30 items-center justify-center m-auto gap-10 text-xs">
+          </p>
 
-        <div className="bg-[#13111F] p-2 px-10 py-3 rounded-xl ">
-            <p>Date</p>
-            <div className="flex gap-1 items-center justify-center py-1 font-semibold text-white">
-            <CiCalendar/> {item.Date}
+        </div>
+      </div>
+
+      {/* =========================
+            EVENT STATS
+         ========================= */}
+               {/* =========================
+            EVENT STATS
+         ========================= */}
+
+      <div className="relative z-20 -mt-14 sm:-mt-16 lg:-mt-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+
+            {/* Date */}
+            <div className="rounded-2xl border border-white/5 bg-[#13111F] p-4 text-center shadow-lg">
+
+              <p className="text-xs text-gray-400 sm:text-sm">
+                Date
+              </p>
+
+              <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
+                <CiCalendar className="text-lg text-cyan-400" />
+                <span>{item.Date}</span>
+              </div>
+
             </div>
-        </div>
 
+            {/* Time */}
+            <div className="rounded-2xl border border-white/5 bg-[#13111F] p-4 text-center shadow-lg">
 
+              <p className="text-xs text-gray-400 sm:text-sm">
+                Time
+              </p>
 
-        <div className="bg-[#13111F] p-2 px-10 py-3 rounded-xl ">
-            <p>Time</p>
-            <div className="flex gap-1 items-center justify-center py-1 font-semibold text-white">
-                <IoIosTime/>
-                {item.Time}
+              <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
+                <IoIosTime className="text-lg text-cyan-400" />
+                <span>{item.Time}</span>
+              </div>
+
             </div>
-        </div>
 
+            {/* Venue */}
+            <div className="rounded-2xl border border-white/5 bg-[#13111F] p-4 text-center shadow-lg">
 
+              <p className="text-xs text-gray-400 sm:text-sm">
+                Venue
+              </p>
 
-        <div className="bg-[#13111F] p-2 px-10 py-3 rounded-xl ">
-            <p>Venue</p>
-            <div className="flex gap-1 items-center justify-center py-1 font-semibold text-white">
-                <IoLocation/>
-                {item.Venue}
+              <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
+                <IoLocation className="text-lg text-cyan-400" />
+                <span className="truncate">
+                  {item.Venue}
+                </span>
+              </div>
+
             </div>
-        </div>
 
+            {/* Registration */}
+            <div className="rounded-2xl border border-white/5 bg-[#13111F] p-4 text-center shadow-lg">
 
-        <div className="bg-[#13111F] p-2 px-10 py-3 rounded-xl "  >
-            <p>Total Registrations</p>
-            <div className="flex gap-1 items-center justify-center py-1 font-semibold text-white">
-                <BiSolidGroup/>
-                {item.NoRegi}
+              <p className="text-xs text-gray-400 sm:text-sm">
+                Total Registrations
+              </p>
+
+              <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
+                <BiSolidGroup className="text-lg text-cyan-400" />
+                <span>{item.NoRegi}</span>
+              </div>
+
             </div>
-        </div>
 
-      
-
-</div>
-        <div className="max-w-7xl mx-auto px-2 py-10">
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ml-30 mr-30">
-
-        {/* Left */}
-        <div className="lg:col-span-2 space-y-8 mt-20 ">
-
-          <Agenda item={item} />
-
-          <EventPhotos item={item} />
+          </div>
 
         </div>
+      </div>
 
-        {/* Right */}
-        <div className="space-y-6 mt-30">
+      {/* =========================
+            MAIN CONTENT
+         ========================= */}
+               {/* =========================
+            MAIN CONTENT
+         ========================= */}
 
-          <RegistrationCard />
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-12 sm:py-16">
 
-          <MapCard item={item} />
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 
-          <EventInfo />
+          {/* ================= Left Section ================= */}
+          <div className="lg:col-span-2 space-y-8">
+
+            <Agenda item={item} />
+
+            <EventPhotos item={item} />
+
+          </div>
+
+          {/* ================= Right Sidebar ================= */}
+          <div className="space-y-6">
+
+            <RegistrationCard />
+
+            <MapCard item={item} />
+
+            <EventInfo />
+
+          </div>
 
         </div>
 
       </div>
 
     </div>
-
-       </div>
-      
-   
-    
   );
 }
 

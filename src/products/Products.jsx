@@ -30,11 +30,22 @@ function ProductCard({ product }) {
   const accessed = ACCESSED_PRODUCTS.has(product.name);
   return (
     <div
-      className="shrink-0 rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+      className="
+  shrink-0
+  w-[220px]
+  sm:w-[240px]
+  md:w-[260px]
+  lg:w-[280px]
+  rounded-2xl
+  border
+  border-white/10
+  bg-white/[0.02]
+  p-4
+"
       style={{ width: CARD_WIDTH }}
     >
       <div className="mb-3 flex items-center gap-2">
-        <h4 className="text-lg font-bold text-white">{product.name}</h4>
+        <h4 className="text-sm sm:text-base font-bold text-white">{product.name}</h4>
         {product.tag && (
           <span
             className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
@@ -47,7 +58,7 @@ function ProductCard({ product }) {
           </span>
         )}
       </div>
-      <p className="mb-6 text-sm leading-relaxed text-gray-400">
+     <p className="mt-2 mb-5 text-xs sm:text-sm leading-6 text-gray-400">
         {product.description}
       </p>
       {accessed ? (
@@ -73,11 +84,11 @@ function CategorySection({ category, index }) {
       behavior: "smooth",
     });
   };
-
+console.log(category);
   return (
     <section className="mb-16">
       {/* Category banner */}
-      <div className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent p-8">
+      <div className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent p-2">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs font-semibold text-gray-300">
             {String(index + 1).padStart(2, "0")}

@@ -1,0 +1,25 @@
+[33m9617178[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull origin main: Fast-forward
+[33m17a3528[m HEAD@{1}: checkout: moving from contact-feature to main
+[33m0a90b8f[m[33m ([m[1;31morigin/contact-feature[m[33m, [m[1;32mcontact-feature[m[33m)[m HEAD@{2}: commit: Added Event page and some developement on service page
+[33m9617178[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: pull origin main: Fast-forward
+[33mddda5c6[m HEAD@{4}: commit: Added contact form functionalityand added event page
+[33mcf64f01[m HEAD@{5}: pull origin main: Fast-forward
+[33mc7c63cc[m HEAD@{6}: commit: scroll top added and make a navbar transparent and completed contact page and some work are done in event page
+[33m5d41cde[m HEAD@{7}: commit: Added contact form functionality
+[33m33b497a[m[33m ([m[1;31morigin/home-contact-update[m[33m, [m[1;32mhome-contact-update[m[33m)[m HEAD@{8}: checkout: moving from contact-feature to contact-feature
+[33m33b497a[m[33m ([m[1;31morigin/home-contact-update[m[33m, [m[1;32mhome-contact-update[m[33m)[m HEAD@{9}: checkout: moving from home-contact-update to contact-feature
+[33m33b497a[m[33m ([m[1;31morigin/home-contact-update[m[33m, [m[1;32mhome-contact-update[m[33m)[m HEAD@{10}: commit: Added contact page components and rating feature
+[33m17a3528[m HEAD@{11}: checkout: moving from main to home-contact-update
+[33m17a3528[m HEAD@{12}: checkout: moving from main to main
+[33m17a3528[m HEAD@{13}: checkout: moving from main to main
+[33m17a3528[m HEAD@{14}: commit: implement Slider in AbousUs page
+[33m5f86cda[m HEAD@{15}: commit: Updated Home page Ui added Success Story,Solutions For Every Need,See how we work
+[33md14febe[m HEAD@{16}: pull origin main: Fast-forward
+[33m9521074[m HEAD@{17}: reset: moving to HEAD
+[33m9521074[m HEAD@{18}: commit: dotGrid and softAurora is disabled due to high load on application
+[33mb1c723d[m HEAD@{19}: commit: Updated homepage UI added SeeOurWork and create new file for home page UI EhyChooseUs.jsx
+[33m21880ec[m HEAD@{20}: Branch: renamed refs/heads/main to refs/heads/main
+[33m21880ec[m HEAD@{22}: commit: Initial commit
+[33mdb12a34[m HEAD@{23}: Branch: renamed refs/heads/main to refs/heads/main
+[33mdb12a34[m HEAD@{25}: Branch: renamed refs/heads/main to refs/heads/main
+[33mdb12a34[m HEAD@{27}: commit (initial): first commit

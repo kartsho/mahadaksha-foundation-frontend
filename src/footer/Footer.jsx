@@ -12,39 +12,43 @@ import { NavLink } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-[#0d0d16] text-gray-300 pt-16">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 items-center justify-center ">
 
         {/* Top Section */}
-        <div className="grid md:grid-cols-4 gap-12">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
 
           {/* Company */}
           <div>
-            <h2 className="text-3xl font-bold text-white mb-8">
-              MAHADAKSHA
-            </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+    MAHADAKSHA
+  </h2>
 
-            <div className="space-y-5">
+  <div className="space-y-4">
 
-              <div className="flex items-center gap-3">
-                <FaEnvelope className="text-lg" />
-                <p>mahadakshaofficial@gmail.com</p>
-              </div>
+    <div className="flex items-start gap-3">
+      <FaEnvelope className="mt-1 shrink-0" />
+      <p className="break-all">
+        mahadakshaofficial@gmail.com
+      </p>
+    </div>
 
-              <div className="flex items-center gap-3">
-                <FaGlobe className="text-lg" />
-                <p>www.mahadaksha.in</p>
-              </div>
+    <div className="flex items-start gap-3">
+      <FaGlobe className="mt-1 shrink-0" />
+      <p className="break-all">
+        www.mahadaksha.in
+      </p>
+    </div>
 
-              <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-lg" />
-                <p>Bengaluru, Karnataka 560100</p>
-              </div>
+    <div className="flex items-start gap-3">
+      <FaMapMarkerAlt className="mt-1 shrink-0" />
+      <p>Bengaluru, Karnataka 560100</p>
+    </div>
 
-              <p className="text-gray-500">
-                CIN: XXXXXXXblackXXXXX
-              </p>
+    <p className="text-gray-500">
+      CIN: XXXXXXXblackXXXXX
+    </p>
 
-              <div className="flex gap-4 pt-3">
+              <div className="flex flex-wrap gap-3 pt-3">
 
                 <div className="bg-[#191926] p-3 rounded-lg hover:bg-purple-700 transition">
                   <FaYoutube />
@@ -73,7 +77,7 @@ export default function Footer() {
               Mahadaksha foundation
             </h3>
 
-            <div className="navbar-center  flex flex-col gap-5 p-2 items-center justify-center ">
+            <div className="flex flex-col gap-4">
 
               {/* -----home---- */}
               <NavLink
@@ -154,7 +158,7 @@ export default function Footer() {
               Resources
             </h3>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3 text-gray-400">
 
               <li>Terms & Conditions</li>
 
@@ -197,9 +201,9 @@ export default function Footer() {
         <hr className="border-gray-800 my-12" />
 
         {/* Middle Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="flex flex-col lg:flex-row justify-between items-center text-center lg:text-left gap-6">
 
-          <div className="flex flex-wrap gap-8">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-8">
 
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-green-400"></span>
@@ -227,7 +231,7 @@ export default function Footer() {
         <hr className="border-gray-800 my-10" />
 
         {/* Bottom */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 pb-10">
+        <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start gap-8 pb-10 text-center xl:text-left">
 
           <div>
 
@@ -235,17 +239,16 @@ export default function Footer() {
               Secured by
             </h3>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center xl:justify-start gap-3">
 
-              <div className="bg-white text-black rounded-lg px-6 py-2 font-bold">
+              <div className="bg-white text-black rounded-lg px-4 py-2 font-bold text-sm">
                 Razorpay
               </div>
 
-              <div className="bg-white text-black rounded-lg px-6 py-2 font-bold">
+              <div className="bg-white text-black rounded-lg px-4 py-2 font-bold text-sm">
                 Cashfree
               </div>
-
-              <div className="bg-white text-black rounded-lg px-6 py-2 font-bold">
+<div className="bg-white text-black rounded-lg px-4 py-2 font-bold text-sm">
                 AIRTM
               </div>
 
@@ -257,7 +260,7 @@ export default function Footer() {
             © 2026 Mahadaksha foundation. All Rights Reserved.
           </p>
 
-          <div className="flex gap-6 text-gray-400">
+         <div className="flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
 
             <a href="#">Privacy Policy</a>
 

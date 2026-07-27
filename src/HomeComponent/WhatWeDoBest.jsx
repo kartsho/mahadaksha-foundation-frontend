@@ -61,26 +61,29 @@ function WhatWeDoBest() {
         }
     ]
   return (
-  <div className=' bg-[#000000] h-full w-full '>
-    <div className='flex items-center justify-items-center m-auto flex-col'>
-        <h1 className='text-white text-5xl font-extrabold pt-10 mt-10'>
-        What we do best
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="text-center">
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+      What we do best
     </h1>
-    <p className='text-white/60 pt-3  font-bold pb-10'>
-        Comprehensive IT services designed to help businesses grow and professionals thrive.
+
+    <p className="mt-4 text-sm sm:text-base lg:text-lg text-white/60 max-w-2xl mx-auto">
+      Comprehensive IT services designed to help businesses grow and
+      professionals thrive.
     </p>
-    </div>
-      
-      <div className='grid grid-cols-3 gap-4  '>
-        {
-            cardDes.map((cardDes)=>(
-                <div key={cardDes.id} className='hover-3d hover:ease-in-out ' >
-                    <BestCard id={cardDes.id} logo={cardDes.logo} title={cardDes.title} description={cardDes.description} />
-                </div>
-            ))
-        }
-    </div>
   </div>
+
+ <div className="mt-12 max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-6 justify-items-center">
+    {cardDes.map((item) => (
+      <BestCard
+        key={item.id}
+        logo={item.logo}
+        title={item.title}
+        description={item.description}
+      />
+    ))}
+  </div>
+</div>
   )
 }
 
@@ -89,41 +92,59 @@ export default WhatWeDoBest
 
 
 
-export function BestCard({
-  logo,
-  title,
-  description,
-}) {
+export function BestCard({ logo, title, description }) {
   return (
-    <div className="m-5 bg-[#13111F] ml-20 mr-20 font-bold  " >
-      <div className='bg-[#13111F] '>
-          <motion.div
-                initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 2 }}
-      viewport={{ once: true, amount: 0.3 }}
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      className="group flex justify-center"
     >
-        <Card sx={{ maxWidth: 535 }}  className='bg-[#13111F] rounded-3xl '>
-        <CardActionArea className='bg-[#13111F]'>
-{/* className='bg-[#13111F]' */}
-          <div className="text-2xl text-purple-600 flex justify-start p-1  bg-[#13111F]">
-            {logo}
-          </div>
+      <div
+        className="
+          w-full
+          max-w-[300px]
+          sm:max-w-[320px]
+          lg:max-w-[340px]
+          rounded-2xl
+          border border-white/10
+          bg-gradient-to-br from-[#141322] to-[#0F172A]
+          p-5
+          transition-all duration-300
+          hover:-translate-y-2
+          hover:border-purple-500/40
+          hover:shadow-[0_15px_40px_rgba(124,77,245,.20)]
+        "
+      >
+        {/* Icon */}
+        <div
+          className="
+            w-12 h-12
+            rounded-xl
+            bg-purple-600/10
+            border border-purple-500/20
+            flex items-center justify-center
+            text-2xl
+            text-purple-500
+            mb-4
+            group-hover:scale-105
+            transition
+          "
+        >
+          {logo}
+        </div>
 
-          <CardContent className='bg-[#13111F]'>
-            <Typography gutterBottom variant="h10" className='text-white '>
-              {title}
-            </Typography>
+        {/* Title */}
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 line-clamp-1">
+          {title}
+        </h2>
 
-            <Typography variant="body2" className='text-white '>
-              {description}
-            </Typography>
-
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      </motion.div>
+        {/* Description */}
+        <p className="text-sm text-gray-400 leading-6 line-clamp-2">
+          {description}
+        </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

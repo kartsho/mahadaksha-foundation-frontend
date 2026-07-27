@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// function Services() {
-//   return (
-//     <div>Services</div>
-//   )
-// }
-
-// export default Services
-
 import React, { useState, useRef, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
