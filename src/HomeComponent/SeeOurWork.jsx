@@ -5,8 +5,10 @@ import { SlEnergy } from "react-icons/sl";
 import { MdOutlineSecurity } from "react-icons/md";
 import { AiOutlineGlobal } from "react-icons/ai";
 import WhyChooseUs from "./WhyChooseUs";
+import { useNavigate } from "react-router-dom";
 
 function SeeOurWork() {
+  const navigate = useNavigate();
   return (
     <section className="relative mt-20 md:mt-28 lg:mt-36 xl:mt-44 pb-20 ">
       {/* Container */}
@@ -70,7 +72,7 @@ function SeeOurWork() {
             </div>
 
             {/* Button */}
-            <button className="mt-8 flex items-center gap-2 btn btn-primary">
+            <button className="mt-8 flex items-center gap-2 btn btn-primary" onClick={()=>navigate('/contact')}>
               Request a Demo
               <FaArrowRight className="text-sm" />
             </button>

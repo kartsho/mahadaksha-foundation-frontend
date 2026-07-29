@@ -166,7 +166,7 @@ function NavBar() {
           {/* Desktop Button */}
           <div className="hidden md:flex items-center">
             <button
-              onClick={() => navigate("/carrer")}
+              onClick={() => navigate("/career")}
               className=" btn hover:btn-soft hover:btn-primary text-white "
             >
               Career
@@ -377,10 +377,14 @@ function NavBar() {
                   Events
                 </NavLink>
 
+              
+                  
+               
+
                 <div className="px-6 mt-6">
                   <button
                     onClick={() => {
-                      navigate("/carrer");
+                      navigate("/career");
                       closeMenu();
                     }}
                     className="btn w-full bg-[#13a6ea] hover:bg-cyan-500 text-white"

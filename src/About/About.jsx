@@ -3,6 +3,7 @@ import { BsCheckLg, BsAward } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa";
 import productTeam from "../assets/productTeam.avif";
 import Slider from "../logoSlider/Slider";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -51,6 +52,8 @@ function About() {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
+
+  const navigate = useNavigate();
 
   return (
     <div className="bg-gradient-to-b from-[#0d0817] via-[#141022] to-[#0d0817]">
@@ -327,7 +330,9 @@ function About() {
        <div className='px-4 pb-24 mt-30 '> 
         <div className='bg-[#13111F] rounded-2xl max-w-4xl mx-auto text-center py-16 px-6'> 
           <h2 className='text-3xl md:text-4xl font-extrabold text-white'> Have a Product Idea? Let's Build It Right. </h2> 
-          <p className='text-[#A09EAB] mt-4 max-w-xl mx-auto'> Share your goals, timeline, and requirements. Our team will respond with a practical roadmap to design, build, and scale your product. </p> <button className='btn btn-primary mt-8 bg-[#7C4DF5] border-none hover:bg-[#6a3ce0]'> Submit Your Requirements <FaArrowRight /> </button> </div> </div> </div>
+          <p className='text-[#A09EAB] mt-4 max-w-xl mx-auto'> Share your goals, timeline, and requirements. Our team will respond with a practical roadmap to design, build, and scale your product. </p> <button className='btn btn-primary mt-8 bg-[#7C4DF5] border-none hover:bg-[#6a3ce0]'
+          onClick={() => navigate("/contact")}
+          > Submit Your Requirements <FaArrowRight /> </button> </div> </div> </div>
 
 
  

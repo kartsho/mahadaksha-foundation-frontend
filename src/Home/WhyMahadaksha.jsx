@@ -3,8 +3,10 @@ import { BsStars } from "react-icons/bs";
 import mahadaksha from "../assets/WhyMahaDaksha.jpg";
 import HowWeWork from "../HomeComponent/HowWeWork";
 import { motion } from "framer-motion";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function WhyMahadaksha() {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#FFFFFF] relative mx-4 sm:mx-8 lg:mx-20">
       <motion.div
@@ -64,7 +66,10 @@ function WhyMahadaksha() {
             </span>
           </div>
 
-          <button className="btn bg-[#3480e5] text-white border-[#006eff] rounded-2xl mt-8 lg:mt-10 hover:bg-[#157aff]">
+          <button className="btn bg-[#3480e5] text-white border-[#006eff] rounded-2xl mt-8 lg:mt-10 hover:bg-[#157aff]" 
+              onClick={() => {
+              navigate("/products");}}
+          >
             Explore Our Products
           </button>
         </div>

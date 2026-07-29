@@ -59,7 +59,8 @@ function Home() {
             Get Started <FaArrowRight />
           </button>
 
-          <button className="btn btn-outline btn-info">
+          <button className="btn btn-outline btn-info" onClick={() => {
+              navigate("/career");}}>
             Learn More
           </button>
         </div>

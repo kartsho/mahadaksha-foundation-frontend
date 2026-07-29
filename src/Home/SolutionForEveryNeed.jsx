@@ -184,7 +184,9 @@ function Card({
               {btn1}
             </button>
 
-            <button className="mt-6 btn btn-soft btn-primary font-medium">
+            <button className="mt-6 btn btn-soft btn-primary font-medium"
+            onClick={() => navigate("/services")}
+            >
               {btn2}
             </button>
           </div>
