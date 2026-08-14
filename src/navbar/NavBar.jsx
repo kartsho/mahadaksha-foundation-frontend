@@ -99,7 +99,7 @@ function NavBar() {
             </NavLink>
 
             <NavLink to="/about" className={navClass}>
-              About
+              About Us
             </NavLink>
 
             {/* PRODUCTS */}
@@ -212,7 +212,7 @@ function NavBar() {
                   className="px-6 py-3 hover:bg-white/5"
                   onClick={closeMenu}
                 >
-                  About
+                  About Us
                 </NavLink>
 
                 {/* PRODUCTS */}

@@ -174,7 +174,7 @@ export function ContactSection() {
                         </div>
 
                         <div className="md:col-span-2">
-                            <button className="w-full h-10 rounded-xl bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.02] duration-300" onClick={handleSubmit}>
+                            <button className="w-full h-10 rounded-xl btn bg-[#0967C2] text-white border-[#0059b3] text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.02] duration-300" onClick={handleSubmit}>
                                 Send Message
                                 <Send size={18} />
                             </button>
