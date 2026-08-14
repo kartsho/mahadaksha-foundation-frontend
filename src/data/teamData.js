@@ -19,7 +19,7 @@ const teamData = [
     id: 3,
     name: "Sateesh yadav",
     role: " Full Stack Lead",
-    image: "https://media.licdn.com/dms/image/v2/D5635AQFBersNFJGuIA/profile-framedphoto-shrink_400_400/B56Z7eQwJvJoAU-/0/1781845394519?e=1785902400&v=beta&t=ELUJQHwBUpijNrVSwTbRv74j5awk3OXkuMrnuvVAGfA",
+    image: "https://media.licdn.com/dms/image/v2/D5635AQHwjzpYu9JxWw/profile-framedphoto-shrink_400_400/B56Z_vRJLvHIAY-/0/1786425677090?e=1787288400&v=beta&t=M8U_Q3fb-u-KCOraicOySp_UtJAZTITSnMEhCEXKa2c",
     profileUrl : 'https://www.linkedin.com/in/sateesh-yadav-5a69a6308/',
   },
 
@@ -35,7 +35,7 @@ const teamData = [
     id: 4,
     name: "Sonali kumari",
     role: "HR Manager",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQHzQ8SH-xh8Eg/profile-displayphoto-scale_400_400/B56Z688.GTKMAg-/0/1781286563546?e=1787184000&v=beta&t=vDFEEmITO9Eo_K_gWxjxMmaYC7-RqvWO56Vp1iZhq_E",
+    image: "https://media.licdn.com/dms/image/v2/D4E03AQHJcpcGjB5Zcw/profile-displayphoto-scale_400_400/B4EZ_v_qK5KQAk-/0/1786437872743?e=1788393600&v=beta&t=bS5FlYMnseXqOgO6QjLMmq-ThGIdFNNW9uuHxfPyQEk",
     profileUrl : 'https://www.linkedin.com/in/sonali-kumari-9ba714331/',
   },
 

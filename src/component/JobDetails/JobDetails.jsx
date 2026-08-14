@@ -126,6 +126,7 @@ const JobDetails = ({ job }) => {
         duration-300
         shadow-lg
         shadow-violet-700/40
+        cursor-pointer
         "
       >
         Apply Now →
