@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css';  
 // 1. Added Navigate to the react-router-dom imports
 import { Routes, Route, Navigate } from "react-router-dom"; 
 
