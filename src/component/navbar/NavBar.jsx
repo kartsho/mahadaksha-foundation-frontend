@@ -167,7 +167,7 @@ function NavBar() {
           <div className="hidden md:flex items-center">
             <button
               onClick={() => navigate("/career")}
-              className=" btn hover:btn-soft hover:btn-primary text-white "
+              className=" btn hover:btn-soft hover:btn-primary text-white"
             >
               Career
               <FaArrowRight />
@@ -189,8 +189,8 @@ function NavBar() {
               className="fixed top-0 right-0 h-screen w-[320px] bg-[#0B1220] shadow-2xl border-l border-white/10 z-50 md:hidden animate-slide-in"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-                <img src={logo} alt="logo" className="h-10 object-contain" />
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 ">
+                {/* <img src={logo} alt="logo" className="h-10 object-contain" /> */}
 
                 <button onClick={closeMenu} className="text-white text-2xl">
                   <FaTimes />
@@ -198,7 +198,7 @@ function NavBar() {
               </div>
 
               {/* Drawer Links */}
-              <div className="flex flex-col py-4 overflow-y-auto max-h-[calc(100vh-84px)]">
+              <div className="flex flex-col py-4 overflow-y-auto max-h-[calc(100vh-84px)] text-white">
                 <NavLink
                   to="/"
                   className="px-6 py-3 hover:bg-white/5"
