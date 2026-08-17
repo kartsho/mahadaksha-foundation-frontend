@@ -1,6 +1,6 @@
 import Slider from "../logoSlider/Slider";
 import { FaArrowRight } from "react-icons/fa";
-import RatingStar from "../rating/RatingStar";
+import RatingStar from "../component/rating/RatingStar";
 import Rating from "./Rating";
 import SellAndNumber from "./SellAndNumber";
 import WhyMahadaksha from "./WhyMahadaksha";

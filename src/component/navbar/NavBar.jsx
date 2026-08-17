@@ -8,7 +8,7 @@ import {
   FaChevronUp,
 } from "react-icons/fa";
 
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import Productsmenu from "./Productsmenu";
 import Servicesmenu from "./Servicesmenu";
 

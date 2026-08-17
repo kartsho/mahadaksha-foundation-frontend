@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { BsCheckLg, BsAward } from "react-icons/bs";
 import { FaArrowRight } from "react-icons/fa";
-import productTeam from "../assets/productTeam.avif";
-import Slider from "../logoSlider/Slider";
+import productTeam from "../../assets/productTeam.avif";
+import Slider from "../../logoSlider/Slider";
 import { useNavigate } from "react-router-dom";
 
 
 
 const API_URL =
-  "https://6a4e15d1e785c9ef536c4116.mockapi.io/mahadakshaFoundation/About";
+  "http://localhost:4000/team";
 
 const stats = [
   {
@@ -44,6 +44,8 @@ const values = [
 function About() {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     fetch(API_URL)
@@ -53,7 +55,19 @@ function About() {
       .finally(() => setLoading(false));
   }, []);
 
-  const navigate = useNavigate();
+  // useEffect(() => {
+  //     const fetchTeams = async () => {
+  //       try {
+  //         const res = await axios.get("http://localhost:4000/team");
+  //         setTeam(res.data);
+  //         console.log(res);
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     };
+  //     fetchTeams();
+  //   }, [])
+
 
   return (
     <div className="bg-gradient-to-b from-[#0d0817] via-[#141022] to-[#0d0817]">
@@ -309,11 +323,19 @@ function About() {
         )}
 
       </section>
-            {/* ================= CERTIFICATIONS ================= */}
+      {/* ================= CERTIFICATIONS ================= */}
 
-      <section className="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 py-24">
+      <section className="mx-2 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 py-10">
 
-       <div className='px-4 py-20 text-center'> <BsAward className='text-[#7C4DF5] text-4xl mx-auto mb-4' /> <h2 className='text-3xl md:text-4xl font-extrabold text-white'>Certifications & Compliance</h2> <p className='text-[#A09EAB] mt-4 max-w-2xl mx-auto'> Our credentials are not just logos. They represent audited quality systems, legal identity, and compliance-backed execution standards. </p> <div className='flex flex-wrap gap-4 justify-center mt-8'> {['ISO Certified', 'MSME Registered', 'MCA Registered'].map((c) => ( <span key={c} className='border border-[#2A2540] text-gray-300 px-5 py-2 rounded-full text-sm'> {c} </span> ))} </div> </div>
+        <div className='px-4 text-center'>
+           <BsAward className='text-[#7C4DF5] text-4xl mx-auto mb-4' /> 
+           <h2 className='text-3xl md:text-4xl font-extrabold text-white'>Certifications & Compliance</h2>
+            <p className='text-[#A09EAB] mt-4 max-w-2xl mx-auto'> Our credentials are not just logos. They represent audited quality systems, legal identity, and compliance-backed execution standards.
+               </p> 
+               <div className='flex flex-wrap gap-4 justify-center mt-8'>
+                 {['ISO Certified', 'MSME Registered', 'MCA Registered'].map((c) => (<span key={c} className='border border-[#2A2540] text-gray-300 px-5 py-2 rounded-full text-sm'> {c} </span>))} 
+               </div> 
+               </div>
 
       </section>
 
@@ -327,15 +349,17 @@ function About() {
 
       {/* ================= CTA ================= */}
 
-       <div className='px-4 pb-24 mt-30 '> 
-        <div className='bg-[#13111F] rounded-2xl max-w-4xl mx-auto text-center py-16 px-6'> 
-          <h2 className='text-3xl md:text-4xl font-extrabold text-white'> Have a Product Idea? Let's Build It Right. </h2> 
-          <p className='text-[#A09EAB] mt-4 max-w-xl mx-auto'> Share your goals, timeline, and requirements. Our team will respond with a practical roadmap to design, build, and scale your product. </p> <button className='btn btn-primary mt-8 bg-[#7C4DF5] border-none hover:bg-[#6a3ce0]'
-          onClick={() => navigate("/contact")}
-          > Submit Your Requirements <FaArrowRight /> </button> </div> </div> </div>
-
-
- 
+      <div className='px-4 pb-20 mt-30 '>
+        <div className='bg-[#13111F] rounded-2xl max-w-4xl mx-auto text-center py-16 px-6'>
+          <h2 className='text-3xl md:text-4xl font-extrabold text-white'> Have a Product Idea? Let's Build It Right. </h2>
+          <p className='text-[#A09EAB] mt-4 max-w-xl mx-auto'> Share your goals, timeline, and requirements. Our team will respond with a practical roadmap to design, build, and scale your product. </p>
+          <button className='btn btn-primary mt-8 bg-[#7C4DF5] border-none hover:bg-[#6a3ce0]'
+            onClick={() => navigate("/contact")}
+          > Submit Your Requirements <FaArrowRight />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 

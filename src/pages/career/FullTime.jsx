@@ -1,20 +1,54 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
-import fullTimeJobs from "../data/fullTimeJobs";
-import JobList from "../component/JobList/JobList";
-import JobDetails from "../component/JobDetails/JobDetails";
+// import fullTimeJobs from "../../data/fullTimeJobs";
+import JobList from "../../component/JobList/JobList";
+import JobDetails from "../../component/JobDetails/JobDetails";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FullTime = () => {
-  const [selectedJob, setSelectedJob] = useState(fullTimeJobs[0]);
+  const [jobs, setJobs] = useState([]);
+  const [selectedJob, setSelectedJob] = useState(null);
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+useEffect(() => {
+  const fetchJobs = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:4000/careers"
+      );
+
+      console.log(response.data);
+
+      setJobs(response.data);
+
+      // Select first job automatically
+      if (response.data.length > 0) {
+        setSelectedJob(response.data[0]);
+      }
+
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+    }
+  };
+
+  fetchJobs();
+}, []);
+
+  // const filteredJobs = useMemo(() => {
+  //   return fullTimeJobs.filter((job) =>
+  //     job.title.toLowerCase().includes(search.toLowerCase())
+  //   );
+  // }, [search]);
 
   const filteredJobs = useMemo(() => {
-    return fullTimeJobs.filter((job) =>
-      job.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [search]);
+  return jobs.filter((job) =>
+    job.jobName.toLowerCase().includes(search.toLowerCase())
+  );
+}, [jobs, search]);
 
   const handleSelectJob = (job) => {
     setSelectedJob(job);
@@ -71,7 +105,7 @@ const FullTime = () => {
           <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl">
 
             <button
-              onClick={() => setShowModal(false)}
+              onClick={() => navigate("/career")}
               className="fixed right-6 top-6 z-50 h-11 w-11 rounded-full bg-white text-black text-xl font-bold hover:scale-110 duration-300"
             >
               ✕

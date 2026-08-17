@@ -1,21 +1,22 @@
-import './App.css';  
+import './App.css';
 // 1. Added Navigate to the react-router-dom imports
-import { Routes, Route, Navigate } from "react-router-dom"; 
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import NavBar from './navbar/NavBar';
-import About from './About/About';
-import Blog from './blog/Blog';
-import Contact from './contact/Contact';
-import Event from './event/Event';
+import NavBar from './component/navbar/NavBar';
+import About from './pages/About/About';
+import Blog from './pages/blog/Blog';
+import Contact from './pages/contact/Contact';
+import Event from './pages/event/Event';
 import Home from './Home/Home';
-import Products from './products/Products';
-import Services from './services/Services';
-import Footer from './footer/Footer';
+import Products from './pages/products/Products';
+import Services from './pages/services/Services';
+import Footer from './component/footer/Footer';
 import ScrollTop from './scrollTop/ScrollTop';
-import EventDetailed from './event/EventDetailed';
+import EventDetailed from './pages/event/EventDetailed';
 import CarrerLayOut from "./layout/CareerLayout";
-import FullTime from "./pages/FullTime";
-import Internship from "./pages/Internship";
+import FullTime from "./pages/career/FullTime";
+import Internship from "./pages/career/Internship";
+import JobDetails from './component/JobDetails/JobDetails';
 
 function App() {
   return (
@@ -31,16 +32,19 @@ function App() {
         <Route path="/event" element={<Event />} />
         <Route path="/products" element={<Products />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/event/event-in-detailed" element={<EventDetailed />} />
-        
+        <Route path="/events/:slug" element={<EventDetailed />} />
+
+
 
         {/* Nested Career Routes */}
         <Route path="/career" element={<CarrerLayOut />}>
           <Route index element={<Navigate to="full-time" replace />} />
           <Route path="full-time" element={<FullTime />} />
+          <Route path="full-time/:slug" element={<JobDetails />} />
+
           <Route path="internship" element={<Internship />} />
-        </Route> 
-      </Routes> 
+        </Route>
+      </Routes>
 
       <Footer />
     </>

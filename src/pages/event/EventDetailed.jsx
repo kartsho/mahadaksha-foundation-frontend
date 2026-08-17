@@ -1,31 +1,44 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import { IoIosTime } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
 import { BiSolidGroup } from "react-icons/bi";
-
 import Agenda from "./Agenda";
 import RegistrationCard from "./RegistrationCard";
 import MapCard from "./MapCard";
 import EventInfo from "./EventInfo";
 import EventPhotos from "./EventPhotos";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function EventDetailed() {
-  const { state } = useLocation();
   const navigate = useNavigate();
+  const { slug } = useParams();
+  const [event, setEvent] = useState(null);
 
-  if (!state) {
+  useEffect(() => {
+
+    const fetchEvent = async () => {
+      console.log("Event:", slug);
+
+      const res = await axios.get(
+        `http://localhost:4000/events/${slug}`
+      );
+
+      console.log(res);
+      setEvent(res.data);
+    };
+    fetchEvent();
+  }, [slug]);
+
+  if (!event) {
     return (
-      <h1 className="flex min-h-screen items-center justify-center bg-black px-4 text-center text-2xl font-extrabold text-white sm:text-4xl lg:text-6xl">
-        No Event Data Found
-      </h1>
+      <div className="text-white bg-black min-h-screen flex items-center justify-center">
+        Loading...
+      </div>
     );
   }
-
-  const { item, category } = state;
-
-  console.log(category);
 
   return (
     <div className="min-h-screen bg-[#0d0817]">
@@ -35,8 +48,8 @@ function EventDetailed() {
 
         {/* Background Image */}
         <img
-          src={item.titleImage}
-          alt={item.title}
+          src={event.image}
+          alt={event.title}
           className="absolute inset-0 h-full w-full object-cover opacity-25 "
         />
 
@@ -56,20 +69,20 @@ function EventDetailed() {
               Back to Events
             </button>
 
-            <span className="rounded-full bg-[#281a44] px-4 py-2 text-xs font-semibold text-white sm:text-sm">
+            {/* <span className="rounded-full bg-[#281a44] px-4 py-2 text-xs font-semibold text-white sm:text-sm">
               {category}
-            </span>
+            </span> */}
 
           </div>
 
           {/* Event Title */}
           <h1 className="max-w-5xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-            {item.title}
+            {event.title}
           </h1>
 
           {/* Event Description */}
           <p className="mt-6 max-w-3xl text-sm leading-7 text-white/80 sm:text-base">
-            {item.description}
+            {event.description}
           </p>
 
         </div>
@@ -96,7 +109,7 @@ function EventDetailed() {
 
               <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
                 <CiCalendar className="text-lg text-cyan-400" />
-                <span>{item.Date}</span>
+                <span>{event.eventDate}</span>
               </div>
 
             </div>
@@ -110,7 +123,7 @@ function EventDetailed() {
 
               <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
                 <IoIosTime className="text-lg text-cyan-400" />
-                <span>{item.Time}</span>
+                <span>{event.eventTime}</span>
               </div>
 
             </div>
@@ -125,7 +138,7 @@ function EventDetailed() {
               <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
                 <IoLocation className="text-lg text-cyan-400" />
                 <span className="truncate">
-                  {item.Venue}
+                  {event.venue}
                 </span>
               </div>
 
@@ -140,7 +153,7 @@ function EventDetailed() {
 
               <div className="mt-3 flex items-center justify-center gap-2 text-sm font-semibold text-white sm:text-base">
                 <BiSolidGroup className="text-lg text-cyan-400" />
-                <span>{item.NoRegi}</span>
+                <span>{event.noOfRegistration}</span>
               </div>
 
             </div>
@@ -164,9 +177,9 @@ function EventDetailed() {
           {/* ================= Left Section ================= */}
           <div className="lg:col-span-2 space-y-8">
 
-            <Agenda item={item} />
+            <Agenda event={event} />
 
-            <EventPhotos item={item} />
+            <EventPhotos event={event} />
 
           </div>
 
@@ -175,7 +188,7 @@ function EventDetailed() {
 
             <RegistrationCard />
 
-            <MapCard item={item} />
+            <MapCard event={event} />
 
             <EventInfo />
 
@@ -188,5 +201,4 @@ function EventDetailed() {
     </div>
   );
 }
-
-export default EventDetailed;
+export default EventDetailed

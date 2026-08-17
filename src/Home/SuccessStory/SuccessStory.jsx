@@ -8,7 +8,7 @@ function SuccessStory() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://6a4e15d1e785c9ef536c4116.mockapi.io/mahadakshaFoundation/About"
+        "http://localhost:4000/casestory"
       );
 
       setData(response.data);
@@ -36,7 +36,7 @@ function SuccessStory() {
 
       <div className="slider-container py-2">
         <div className="marquee">
-          {[...data, ...data].map((item, index) => (
+          {data.map((item, index) => (
             <div className="slider-item" key={`${item.id}-${index}`}>
               <Card data={item} />
             </div>
