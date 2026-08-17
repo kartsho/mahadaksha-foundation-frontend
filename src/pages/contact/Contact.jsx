@@ -5,49 +5,49 @@ import { FaLinkedinIn, FaYoutube, } from 'react-icons/fa'
 
 const Contact = () => {
   const [details, setDetails] = useState({
-  fullName: "",
-  email: "",
-  companyName: "",
-  phoneNumber: "",
-  service: "",
-  message: ""
-});
+    fullName: "",
+    email: "",
+    companyName: "",
+    phoneNumber: "",
+    service: "",
+    message: ""
+  });
 
-const handleChange = (e) => {
-  setDetails((prev) => ({
-    ...prev,
-    [e.target.name]: e.target.value
-  }));
-};
+  const handleChange = (e) => {
+    setDetails((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    // console.log("Sending:", details);
+    try {
+      // console.log("Sending:", details);
 
-    const response = await axios.post(
-      "http://localhost:4000/contact",
-      details
-    );
+      const response = await axios.post(
+        "http://localhost:4000/contact",
+        details
+      );
 
-    // console.log(response.data);
+      // console.log(response.data);
 
-    alert("Contact submitted successfully!");
+      alert("Contact submitted successfully!");
 
-    setDetails({
-      fullName: "",
-      email: "",
-      companyName: "",
-      phoneNumber: "",
-      service: "",
-      message: ""
-    });
+      setDetails({
+        fullName: "",
+        email: "",
+        companyName: "",
+        phoneNumber: "",
+        service: "",
+        message: ""
+      });
 
-  } catch (error) {
-    console.log("Backend error:", error.response?.data);
-  }
-};
+    } catch (error) {
+      console.log("Backend error:", error.response?.data);
+    }
+  };
   return (
     <div className='w-full bg-black'>
       <section>
@@ -62,11 +62,13 @@ const handleSubmit = async (e) => {
           </div>
         </div>
       </section>
-      <section className="relative overflow-hidden ml-40 mr-40 rounded-2xl">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.7fr_1fr] gap-18 mb-30">
+      <section className="relative overflow-hidden mx-4 sm:mx-6 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-40 rounded-2xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.7fr_1fr] gap-10 lg:gap-16 mb-16 lg:mb-30">
+
           {/* ================= Left Side ================= */}
-          <form onClick={handleChange}>
-            <div className="grid md:grid-cols-2 gap-2">
+
+          <form onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               {/* Full Name */}
               <div className="md:col-span-2">
@@ -123,6 +125,7 @@ const handleSubmit = async (e) => {
                 </label>
 
                 <input
+                  type="tel"
                   name="phoneNumber"
                   value={details.phoneNumber}
                   onChange={handleChange}
@@ -158,26 +161,26 @@ const handleSubmit = async (e) => {
                 </label>
 
                 <textarea
-                  rows={3}
+                  rows={5}
                   name="message"
                   value={details.message}
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
-                  className="w-full rounded-xl bg-[#130d24] border border-[#2b2143] p-5 text-white placeholder-gray-500 outline-none resize-none focus:border-violet-500"
+                  className="w-full rounded-xl bg-[#130d24] border border-[#2b2143] p-4 sm:p-5 text-white placeholder-gray-500 outline-none resize-none focus:border-violet-500"
                 />
               </div>
 
               {/* Submit */}
               <div className="md:col-span-2">
                 <button
-                  onClick={handleSubmit}
-                  className="w-full h-10 rounded-xl bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.02] duration-300"
+                  type="submit"
+                  className="w-full h-10 rounded-xl bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.02] active:scale-[0.98] duration-300"
                 >
                   Send Message
                   <Send size={18} />
                 </button>
 
-                <p className="text-center text-gray-500 mt-4 text-sm">
+                <p className="text-center text-gray-500 mt-4 text-xs sm:text-sm">
                   * Required fields. Your information is secure.
                 </p>
               </div>
@@ -186,29 +189,28 @@ const handleSubmit = async (e) => {
 
           {/* ================= Right Side ================= */}
 
-          <div className="space-y-5 mt-6">
+          <div className="space-y-6 lg:mt-6">
 
             {/* Email */}
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="shrink-0 w-9 h-9 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
                 <Mail size={18} />
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
                   Email
                 </p>
 
-                <p className="text-gray-300 text-sm mt-1">
+                <p className="text-gray-300 text-sm mt-1 break-all">
                   mahadakshaofficial@gmail.com
                 </p>
-
               </div>
             </div>
 
             {/* Phone */}
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="shrink-0 w-9 h-9 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
                 <Phone size={15} />
               </div>
 
@@ -224,12 +226,12 @@ const handleSubmit = async (e) => {
             </div>
 
             {/* Office */}
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="shrink-0 w-9 h-9 rounded-xl border border-[#32204f] bg-[#170f2d] flex items-center justify-center text-violet-500">
                 <MapPin size={18} />
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
                   Office
                 </p>
@@ -240,9 +242,10 @@ const handleSubmit = async (e) => {
               </div>
             </div>
 
+            {/* Map */}
             <iframe
               title="map"
-              className="rounded-xl w-full h-35 border border-[#2b2143]"
+              className="rounded-xl w-full h-48 sm:h-56 lg:h-44 border border-[#2b2143]"
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d221.6429553075027!2d77.88561091385688!3d30.346076294516976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1783670185989!5m2!1sen!2sin"
               loading="lazy"
               allowFullScreen
@@ -250,40 +253,46 @@ const handleSubmit = async (e) => {
             />
 
             {/* Registered Office */}
-            <div className="flex items-start gap-2 p-2 rounded-xl">
-              <div className="text-violet-500">
+            <div className="flex items-start gap-3 p-2 rounded-xl">
+              <div className="shrink-0 text-violet-500">
                 <Building2 size={15} />
               </div>
 
-              <div>
-                <h6 className="text-gray-400 text-sm uppercase">
+              <div className="min-w-0">
+                <h6 className="text-gray-400 text-xs sm:text-sm uppercase">
                   Registered
                 </h6>
 
-                <p className="text-white text-sm mt-1">
+                <p className="text-white text-sm mt-1 leading-6">
                   C/o-Padmalabha Gouda, Odisha - 761118
                 </p>
               </div>
             </div>
+
+            {/* Follow Us */}
             <div>
-              <h6 className="text-gray-400 uppercase text-sm mb-2">
+              <h6 className="text-gray-400 uppercase text-xs sm:text-sm mb-3">
                 Follow Us
               </h6>
 
               <div className="flex gap-3">
                 <div className="w-10 h-10 rounded-xl border border-[#32204f] bg-[#170f2d] flex justify-center items-center text-gray-300 hover:bg-violet-600 hover:text-white duration-300 cursor-pointer">
-                  <a href="/contact"><FaLinkedinIn /></a>
+                  <a href="/contact">
+                    <FaLinkedinIn />
+                  </a>
                 </div>
 
                 <div className="w-10 h-10 rounded-xl border border-[#32204f] bg-[#170f2d] flex justify-center items-center text-gray-300 hover:bg-violet-600 hover:text-white duration-300 cursor-pointer">
-                  <a href="/contact"><FaYoutube /></a>
+                  <a href="/contact">
+                    <FaYoutube />
+                  </a>
                 </div>
-                {/* <span><FaXTwitter /> </span> */}
               </div>
             </div>
+
           </div>
         </div>
-      </section >
+      </section>
     </div>
   )
 }
