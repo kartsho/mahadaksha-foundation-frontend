@@ -52,13 +52,13 @@ export default SuccessStory;
 export const Card = ({ data }) => {
   return (
     <div className="card flex ">
-      <div className="flex-0.5  rounded-2xl">
+      <div className="flex-0.5 rounded-2xl">
         <img src={data.image} alt={data.name}
         className="object-cover rounded-2xl"
         />
       </div>
 
-     <div className="flex-1">
+     <div className="flex-1 ">
          <h2>{data.name}</h2>
 
       <h3>{data.role}</h3>

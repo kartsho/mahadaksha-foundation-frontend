@@ -13,6 +13,9 @@ const Contact = () => {
     message: ""
   });
 
+  const [errors, setErrors] = useState({});
+
+
   const handleChange = (e) => {
     setDetails((prev) => ({
       ...prev,
@@ -20,8 +23,67 @@ const Contact = () => {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Full Name
+    if (!details.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    } else if (details.fullName.trim().length < 3) {
+      newErrors.fullName = "Full name must be at least 3 characters";
+    } else if (!/^[A-Za-z\s]+$/.test(details.fullName)) {
+      newErrors.fullName = "Full name can contain only letters and spaces";
+    }
+
+    // Email
+    if (!details.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(
+        details.email
+      )
+    ) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Company Name - Optional
+    if (
+      details.companyName.trim() &&
+      details.companyName.trim().length < 2
+    ) {
+      newErrors.companyName = "Company name must be at least 2 characters";
+    }
+
+    // Phone Number - Optional
+    if (details.phoneNumber.trim()) {
+      if (!/^[6-9]\d{9}$/.test(details.phoneNumber.trim())) {
+        newErrors.phoneNumber =
+          "Please enter a valid 10-digit phone number";
+      }
+    }
+
+    // Service
+    if (!details.service) {
+      newErrors.service = "Please select a service";
+    }
+
+    // Message
+    if (!details.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (details.message.trim().length < 5) {
+      newErrors.message = "Message must be at least 5 characters";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
 
     try {
       // console.log("Sending:", details);
@@ -84,6 +146,11 @@ const Contact = () => {
                   placeholder="John Doe"
                   className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
                 />
+                {errors.fullName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.fullName}
+                  </p>
+                )}
               </div>
 
               {/* Email */}
@@ -100,6 +167,11 @@ const Contact = () => {
                   placeholder="john@email.com"
                   className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               {/* Company */}
@@ -116,6 +188,11 @@ const Contact = () => {
                   placeholder="Your Company"
                   className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
                 />
+                {errors.companyName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.companyName}
+                  </p>
+                )}
               </div>
 
               {/* Phone */}
@@ -132,6 +209,11 @@ const Contact = () => {
                   placeholder="+91 9876543210"
                   className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
                 />
+                {errors.phoneNumber && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.phoneNumber}
+                  </p>
+                )}
               </div>
 
               {/* Service Interest */}
@@ -152,6 +234,11 @@ const Contact = () => {
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Digital Marketing">Digital Marketing</option>
                 </select>
+                {errors.service && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.service}
+                  </p>
+                )}
               </div>
 
               {/* Message */}
@@ -168,6 +255,11 @@ const Contact = () => {
                   placeholder="Tell us about your project..."
                   className="w-full rounded-xl bg-[#130d24] border border-[#2b2143] p-4 sm:p-5 text-white placeholder-gray-500 outline-none resize-none focus:border-violet-500"
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               {/* Submit */}

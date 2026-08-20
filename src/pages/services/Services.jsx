@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import axios from "axios";
 
@@ -119,6 +119,7 @@ export default function Services() {
   const [servicesData, setServicesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeSlug, setActiveSlug] = useState("");
+  const navigate = useNavigate();
 
   const requestedCategory =
     searchParams.get("category");
@@ -278,7 +279,7 @@ export default function Services() {
           {servicesData.map((service) => (
 
             <CategoryPill
-              key={service._id}
+              key={service.slug}
               label={service.title}
               active={
                 service.slug === activeSlug
@@ -286,6 +287,7 @@ export default function Services() {
               onClick={() =>
                 setActiveSlug(service.slug)
               }
+            //  onClick={() => navigate(`/service/${service.slug}`)}
             />
           ))}
         </div>

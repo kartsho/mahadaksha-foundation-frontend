@@ -141,8 +141,10 @@
 
 
 import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const JobDetails = ({ job }) => {
+  const navigate = useNavigate();
   if (!job) {
     return <div>Loading...</div>;
   }
@@ -336,6 +338,7 @@ const JobDetails = ({ job }) => {
           shadow-violet-700/40
           cursor-pointer
         "
+         onClick={() => navigate(`/career/apply/${job.slug}`)}
       >
         Apply Now →
       </button>

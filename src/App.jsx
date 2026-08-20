@@ -17,6 +17,7 @@ import CarrerLayOut from "./layout/CareerLayout";
 import FullTime from "./pages/career/FullTime";
 import Internship from "./pages/career/Internship";
 import JobDetails from './component/JobDetails/JobDetails';
+import CareerApplication from './pages/career/ApplyForm/CareerApplication';
 
 function App() {
   return (
@@ -37,13 +38,25 @@ function App() {
 
 
         {/* Nested Career Routes */}
+        {/* <Route path="/career" element={<CarrerLayOut />}>
+          <Route index element={<Navigate to="full-time" replace />} />
+          <Route path="full-time" element={<FullTime />} />
+          <Route path="full-time/:slug" element={<JobDetails />} />
+          <Route path="/careers/apply" element={<CareerApplication />} />
+
+
+          <Route path="internship" element={<Internship />} />
+        </Route> */}
+
         <Route path="/career" element={<CarrerLayOut />}>
           <Route index element={<Navigate to="full-time" replace />} />
           <Route path="full-time" element={<FullTime />} />
           <Route path="full-time/:slug" element={<JobDetails />} />
+          <Route path="apply/:slug" element={<CareerApplication />} />
 
           <Route path="internship" element={<Internship />} />
         </Route>
+
       </Routes>
 
       <Footer />
