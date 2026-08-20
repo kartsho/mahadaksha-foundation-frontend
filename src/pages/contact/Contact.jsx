@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { Building2, Icon, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Building2, Mail, MapPin, Phone, Send, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react'
 import React, { useState } from 'react'
-import { FaLinkedinIn, FaYoutube, } from 'react-icons/fa'
+import { FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 const Contact = () => {
   const [details, setDetails] = useState({
@@ -13,27 +13,142 @@ const Contact = () => {
     message: ""
   });
 
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+
+  const validateField = (name, value) => {
+    let error = "";
+
+    switch (name) {
+      case "fullName":
+        if (!value.trim()) {
+          error = "Full name is required";
+        } else if (value.trim().length < 2) {
+          error = "Name must be at least 2 characters";
+        } else if (!/^[a-zA-Z\s.'-]+$/.test(value.trim())) {
+          error = "Name can only contain letters and spaces";
+        }
+        break;
+
+      case "email":
+        if (!value.trim()) {
+          error = "Email address is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+          error = "Please enter a valid email address";
+        }
+        break;
+
+      case "phoneNumber":
+        if (!value.trim()) {
+          error = "Phone number is required";
+        } else {
+          const cleanedPhone = value.replace(/[\s\-\(\)\+]/g, "");
+          if (!/^\d{10,15}$/.test(cleanedPhone)) {
+            error = "Please enter a valid phone number (at least 10 digits)";
+          }
+        }
+        break;
+
+      case "service":
+        if (!value) {
+          error = "Please select a service";
+        }
+        break;
+
+      case "message":
+        if (!value.trim()) {
+          error = "Message is required";
+        } else if (value.trim().length < 10) {
+          error = "Message must be at least 10 characters";
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    return error;
+  };
+
+  const validateAll = (data) => {
+    const newErrors = {};
+    ["fullName", "email", "phoneNumber", "service", "message"].forEach((field) => {
+      const error = validateField(field, data[field]);
+      if (error) {
+        newErrors[field] = error;
+      }
+    });
+    return newErrors;
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setDetails((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
+    }));
+
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors((prev) => ({
+        ...prev,
+        [name]: error
+      }));
+    }
+
+    if (submitStatus.message) {
+      setSubmitStatus({ type: "", message: "" });
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true
+    }));
+
+    const error = validateField(name, value);
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // console.log("Sending:", details);
+    setTouched({
+      fullName: true,
+      email: true,
+      companyName: true,
+      phoneNumber: true,
+      service: true,
+      message: true
+    });
 
+    const formErrors = validateAll(details);
+    setErrors(formErrors);
+
+    if (Object.keys(formErrors).length > 0) {
+      return;
+    }
+
+    setLoading(true);
+    setSubmitStatus({ type: "", message: "" });
+
+    try {
       const response = await axios.post(
         "http://localhost:4000/contact",
         details
       );
 
-      // console.log(response.data);
-
-      alert("Contact submitted successfully!");
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you! Your message has been submitted successfully."
+      });
 
       setDetails({
         fullName: "",
@@ -44,10 +159,20 @@ const Contact = () => {
         message: ""
       });
 
+      setTouched({});
+      setErrors({});
+
     } catch (error) {
-      console.log("Backend error:", error.response?.data);
+      console.log("Backend error:", error.response?.data || error.message);
+      setSubmitStatus({
+        type: "error",
+        message: error.response?.data?.message || "Failed to submit. Please check your connection and try again."
+      });
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <div className='w-full bg-black'>
       <section>
@@ -67,8 +192,26 @@ const Contact = () => {
 
           {/* ================= Left Side ================= */}
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* Status Alert Banner */}
+              {submitStatus.message && (
+                <div
+                  className={`md:col-span-2 p-3.5 rounded-xl text-sm flex items-center gap-3 transition-all ${
+                    submitStatus.type === "success"
+                      ? "bg-emerald-500/10 border border-emerald-500/40 text-emerald-300"
+                      : "bg-red-500/10 border border-red-500/40 text-red-300"
+                  }`}
+                >
+                  {submitStatus.type === "success" ? (
+                    <CheckCircle2 size={18} className="shrink-0 text-emerald-400" />
+                  ) : (
+                    <AlertCircle size={18} className="shrink-0 text-red-400" />
+                  )}
+                  <span>{submitStatus.message}</span>
+                </div>
+              )}
 
               {/* Full Name */}
               <div className="md:col-span-2">
@@ -81,9 +224,20 @@ const Contact = () => {
                   name="fullName"
                   value={details.fullName}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="John Doe"
-                  className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
+                  className={`w-full h-10 rounded-xl bg-[#130d24] border px-3 text-white placeholder-gray-500 outline-none transition-colors ${
+                    touched.fullName && errors.fullName
+                      ? "border-red-500/80 focus:border-red-500 ring-1 ring-red-500/30"
+                      : "border-[#2b2143] focus:border-violet-500"
+                  }`}
                 />
+                {touched.fullName && errors.fullName && (
+                  <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle size={13} className="shrink-0" />
+                    <span>{errors.fullName}</span>
+                  </p>
+                )}
               </div>
 
               {/* Email */}
@@ -97,9 +251,20 @@ const Contact = () => {
                   name="email"
                   value={details.email}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="john@email.com"
-                  className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
+                  className={`w-full h-10 rounded-xl bg-[#130d24] border px-3 text-white placeholder-gray-500 outline-none transition-colors ${
+                    touched.email && errors.email
+                      ? "border-red-500/80 focus:border-red-500 ring-1 ring-red-500/30"
+                      : "border-[#2b2143] focus:border-violet-500"
+                  }`}
                 />
+                {touched.email && errors.email && (
+                  <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle size={13} className="shrink-0" />
+                    <span>{errors.email}</span>
+                  </p>
+                )}
               </div>
 
               {/* Company */}
@@ -121,7 +286,7 @@ const Contact = () => {
               {/* Phone */}
               <div>
                 <label className="text-gray-300 text-xs mb-2 block">
-                  Phone Number
+                  Phone Number *
                 </label>
 
                 <input
@@ -129,9 +294,20 @@ const Contact = () => {
                   name="phoneNumber"
                   value={details.phoneNumber}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="+91 9876543210"
-                  className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-white placeholder-gray-500 outline-none focus:border-violet-500"
+                  className={`w-full h-10 rounded-xl bg-[#130d24] border px-3 text-white placeholder-gray-500 outline-none transition-colors ${
+                    touched.phoneNumber && errors.phoneNumber
+                      ? "border-red-500/80 focus:border-red-500 ring-1 ring-red-500/30"
+                      : "border-[#2b2143] focus:border-violet-500"
+                  }`}
                 />
+                {touched.phoneNumber && errors.phoneNumber && (
+                  <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle size={13} className="shrink-0" />
+                    <span>{errors.phoneNumber}</span>
+                  </p>
+                )}
               </div>
 
               {/* Service Interest */}
@@ -144,7 +320,12 @@ const Contact = () => {
                   name="service"
                   value={details.service}
                   onChange={handleChange}
-                  className="w-full h-10 rounded-xl bg-[#130d24] border border-[#2b2143] px-3 text-gray-400 outline-none focus:border-violet-500"
+                  onBlur={handleBlur}
+                  className={`w-full h-10 rounded-xl bg-[#130d24] border px-3 text-gray-300 outline-none transition-colors ${
+                    touched.service && errors.service
+                      ? "border-red-500/80 focus:border-red-500 ring-1 ring-red-500/30"
+                      : "border-[#2b2143] focus:border-violet-500"
+                  }`}
                 >
                   <option value="">Select a service</option>
                   <option value="Web Development">Web Development</option>
@@ -152,6 +333,12 @@ const Contact = () => {
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Digital Marketing">Digital Marketing</option>
                 </select>
+                {touched.service && errors.service && (
+                  <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle size={13} className="shrink-0" />
+                    <span>{errors.service}</span>
+                  </p>
+                )}
               </div>
 
               {/* Message */}
@@ -165,19 +352,40 @@ const Contact = () => {
                   name="message"
                   value={details.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Tell us about your project..."
-                  className="w-full rounded-xl bg-[#130d24] border border-[#2b2143] p-4 sm:p-5 text-white placeholder-gray-500 outline-none resize-none focus:border-violet-500"
+                  className={`w-full rounded-xl bg-[#130d24] border p-4 sm:p-5 text-white placeholder-gray-500 outline-none resize-none transition-colors ${
+                    touched.message && errors.message
+                      ? "border-red-500/80 focus:border-red-500 ring-1 ring-red-500/30"
+                      : "border-[#2b2143] focus:border-violet-500"
+                  }`}
                 />
+                {touched.message && errors.message && (
+                  <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle size={13} className="shrink-0" />
+                    <span>{errors.message}</span>
+                  </p>
+                )}
               </div>
 
               {/* Submit */}
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="w-full h-10 rounded-xl bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.02] active:scale-[0.98] duration-300"
+                  disabled={loading}
+                  className="w-full h-11 rounded-xl bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 text-white font-semibold flex justify-center items-center gap-3 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 duration-300 cursor-pointer shadow-lg shadow-violet-900/30"
                 >
-                  Send Message
-                  <Send size={18} />
+                  {loading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={18} />
+                    </>
+                  )}
                 </button>
 
                 <p className="text-center text-gray-500 mt-4 text-xs sm:text-sm">
