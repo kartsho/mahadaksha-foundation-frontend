@@ -38,15 +38,6 @@ function App() {
 
 
         {/* Nested Career Routes */}
-        {/* <Route path="/career" element={<CarrerLayOut />}>
-          <Route index element={<Navigate to="full-time" replace />} />
-          <Route path="full-time" element={<FullTime />} />
-          <Route path="full-time/:slug" element={<JobDetails />} />
-          <Route path="/careers/apply" element={<CareerApplication />} />
-
-
-          <Route path="internship" element={<Internship />} />
-        </Route> */}
 
         <Route path="/career" element={<CarrerLayOut />}>
           <Route index element={<Navigate to="full-time" replace />} />
